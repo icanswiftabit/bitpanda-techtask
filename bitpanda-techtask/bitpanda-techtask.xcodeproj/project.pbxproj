@@ -19,12 +19,12 @@
 		BE2C5E95261C9EA20071592F /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E94261C9EA20071592F /* AssetView.swift */; };
 		BE2C5EA4261C9FFA0071592F /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EA3261C9FFA0071592F /* AssetViewController.swift */; };
 		BE2C5EAC261CA0430071592F /* AssetFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EAB261CA0430071592F /* AssetFlowController.swift */; };
-		BE2C5EBA261CDD6E0071592F /* AssetsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EB9261CDD6E0071592F /* AssetsRepositoryProtocol.swift */; };
+		BE2C5EBA261CDD6E0071592F /* AssetRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EB9261CDD6E0071592F /* AssetRepositoryProtocol.swift */; };
 		BE2C5EC0261CDDC20071592F /* AssetFiatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EBF261CDDC20071592F /* AssetFiatDTO.swift */; };
 		BE2C5EC5261CDE670071592F /* AssetCryptoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EC4261CDE670071592F /* AssetCryptoDTO.swift */; };
 		BE2C5ECA261CDECE0071592F /* AssetCommoditiesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EC9261CDECE0071592F /* AssetCommoditiesDTO.swift */; };
 		BE2C5ED0261CDF1B0071592F /* JsonMasterdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5ECF261CDF1B0071592F /* JsonMasterdata.swift */; };
-		BE2C5ED6261CDF6D0071592F /* AssetsJsonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5ED5261CDF6D0071592F /* AssetsJsonRepository.swift */; };
+		BE2C5ED6261CDF6D0071592F /* AssetJsonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5ED5261CDF6D0071592F /* AssetJsonRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,12 +63,12 @@
 		BE2C5E94261C9EA20071592F /* AssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
 		BE2C5EA3261C9FFA0071592F /* AssetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
 		BE2C5EAB261CA0430071592F /* AssetFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetFlowController.swift; sourceTree = "<group>"; };
-		BE2C5EB9261CDD6E0071592F /* AssetsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		BE2C5EB9261CDD6E0071592F /* AssetRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetRepositoryProtocol.swift; sourceTree = "<group>"; };
 		BE2C5EBF261CDDC20071592F /* AssetFiatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetFiatDTO.swift; sourceTree = "<group>"; };
 		BE2C5EC4261CDE670071592F /* AssetCryptoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCryptoDTO.swift; sourceTree = "<group>"; };
 		BE2C5EC9261CDECE0071592F /* AssetCommoditiesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCommoditiesDTO.swift; sourceTree = "<group>"; };
 		BE2C5ECF261CDF1B0071592F /* JsonMasterdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonMasterdata.swift; sourceTree = "<group>"; };
-		BE2C5ED5261CDF6D0071592F /* AssetsJsonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsJsonRepository.swift; sourceTree = "<group>"; };
+		BE2C5ED5261CDF6D0071592F /* AssetJsonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetJsonRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				BE2C5E7E261C9CC30071592F /* FlowController.swift */,
-				BE2C5EB9261CDD6E0071592F /* AssetsRepositoryProtocol.swift */,
+				BE2C5EB9261CDD6E0071592F /* AssetRepositoryProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -217,7 +217,7 @@
 		BE2C5ED4261CDF4F0071592F /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				BE2C5ED5261CDF6D0071592F /* AssetsJsonRepository.swift */,
+				BE2C5ED5261CDF6D0071592F /* AssetJsonRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -355,14 +355,14 @@
 				BE2C5E8C261C9D400071592F /* AppController.swift in Sources */,
 				BE2C5E43261C9A440071592F /* AppDelegate.swift in Sources */,
 				BE2C5E45261C9A440071592F /* SceneDelegate.swift in Sources */,
-				BE2C5ED6261CDF6D0071592F /* AssetsJsonRepository.swift in Sources */,
+				BE2C5ED6261CDF6D0071592F /* AssetJsonRepository.swift in Sources */,
 				BE2C5E7F261C9CC30071592F /* FlowController.swift in Sources */,
 				BE2C5EA4261C9FFA0071592F /* AssetViewController.swift in Sources */,
 				BE2C5E95261C9EA20071592F /* AssetView.swift in Sources */,
 				BE2C5EC0261CDDC20071592F /* AssetFiatDTO.swift in Sources */,
 				BE2C5ED0261CDF1B0071592F /* JsonMasterdata.swift in Sources */,
 				BE2C5EC5261CDE670071592F /* AssetCryptoDTO.swift in Sources */,
-				BE2C5EBA261CDD6E0071592F /* AssetsRepositoryProtocol.swift in Sources */,
+				BE2C5EBA261CDD6E0071592F /* AssetRepositoryProtocol.swift in Sources */,
 				BE2C5EAC261CA0430071592F /* AssetFlowController.swift in Sources */,
 				BE2C5ECA261CDECE0071592F /* AssetCommoditiesDTO.swift in Sources */,
 			);

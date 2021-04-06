@@ -9,12 +9,12 @@ import UIKit
 
 final class AssetFlowController: FlowController {
     private(set) lazy var rootViewController: UINavigationController = configureRootViewController()
-    private let assetRepository: AssetsRepositoryProtocol
+    private let assetRepository: AssetRepositoryProtocol
     
     init() {
         guard let url = Bundle.main.url(forResource: "Mastrerdata", withExtension: "json"),
               let jsonData = try? Data(contentsOf: url),
-              let repository = AssetsJsonRepository(jsonData: jsonData)
+              let repository = AssetJsonRepository(jsonData: jsonData)
         else {
             assert(false, "Json file not found or repository faild to init!")
         }
@@ -22,6 +22,6 @@ final class AssetFlowController: FlowController {
     }
     
     func configureRootViewController() -> UINavigationController {
-        return UINavigationController(rootViewController: AssetViewController(repository: assetRepository))
+        return UINavigationController(rootViewController: AssetViewController(repository: assetRepository, on: DispatchQueue.main))
     }
 }

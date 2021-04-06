@@ -23,8 +23,7 @@ final class AssetView: UIView {
 
 private extension AssetView {
     func setUp() {
-        backgroundColor = .white
-        title.text = "dupa"
+        backgroundColor = .systemBackground
         title.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(title)
