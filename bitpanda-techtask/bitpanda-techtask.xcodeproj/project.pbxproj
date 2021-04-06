@@ -1,0 +1,688 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE2C5E43261C9A440071592F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E42261C9A440071592F /* AppDelegate.swift */; };
+		BE2C5E45261C9A440071592F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E44261C9A440071592F /* SceneDelegate.swift */; };
+		BE2C5E4C261C9A440071592F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE2C5E4B261C9A440071592F /* Assets.xcassets */; };
+		BE2C5E4F261C9A440071592F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2C5E4D261C9A440071592F /* LaunchScreen.storyboard */; };
+		BE2C5E5A261C9A440071592F /* bitpanda_techtaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E59261C9A440071592F /* bitpanda_techtaskTests.swift */; };
+		BE2C5E65261C9A440071592F /* bitpanda_techtaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E64261C9A440071592F /* bitpanda_techtaskUITests.swift */; };
+		BE2C5E76261C9C250071592F /* Mastrerdata.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2C5E75261C9C250071592F /* Mastrerdata.json */; };
+		BE2C5E7F261C9CC30071592F /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E7E261C9CC30071592F /* FlowController.swift */; };
+		BE2C5E8C261C9D400071592F /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E8B261C9D400071592F /* AppController.swift */; };
+		BE2C5E95261C9EA20071592F /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E94261C9EA20071592F /* AssetView.swift */; };
+		BE2C5EA4261C9FFA0071592F /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EA3261C9FFA0071592F /* AssetViewController.swift */; };
+		BE2C5EAC261CA0430071592F /* AssetFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EAB261CA0430071592F /* AssetFlowController.swift */; };
+		BE2C5EBA261CDD6E0071592F /* AssetsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EB9261CDD6E0071592F /* AssetsRepositoryProtocol.swift */; };
+		BE2C5EC0261CDDC20071592F /* AssetFiatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EBF261CDDC20071592F /* AssetFiatDTO.swift */; };
+		BE2C5EC5261CDE670071592F /* AssetCryptoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EC4261CDE670071592F /* AssetCryptoDTO.swift */; };
+		BE2C5ECA261CDECE0071592F /* AssetCommoditiesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EC9261CDECE0071592F /* AssetCommoditiesDTO.swift */; };
+		BE2C5ED0261CDF1B0071592F /* JsonMasterdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5ECF261CDF1B0071592F /* JsonMasterdata.swift */; };
+		BE2C5ED6261CDF6D0071592F /* AssetsJsonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5ED5261CDF6D0071592F /* AssetsJsonRepository.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE2C5E56261C9A440071592F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE2C5E37261C9A440071592F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE2C5E3E261C9A440071592F;
+			remoteInfo = "bitpanda-techtask";
+		};
+		BE2C5E61261C9A440071592F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE2C5E37261C9A440071592F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE2C5E3E261C9A440071592F;
+			remoteInfo = "bitpanda-techtask";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE2C5E3F261C9A440071592F /* bitpanda-techtask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bitpanda-techtask.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE2C5E42261C9A440071592F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE2C5E44261C9A440071592F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BE2C5E4B261C9A440071592F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE2C5E4E261C9A440071592F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE2C5E50261C9A440071592F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE2C5E55261C9A440071592F /* bitpanda-techtaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bitpanda-techtaskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE2C5E59261C9A440071592F /* bitpanda_techtaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bitpanda_techtaskTests.swift; sourceTree = "<group>"; };
+		BE2C5E5B261C9A440071592F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE2C5E60261C9A440071592F /* bitpanda-techtaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bitpanda-techtaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE2C5E64261C9A440071592F /* bitpanda_techtaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bitpanda_techtaskUITests.swift; sourceTree = "<group>"; };
+		BE2C5E66261C9A440071592F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE2C5E75261C9C250071592F /* Mastrerdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Mastrerdata.json; sourceTree = "<group>"; };
+		BE2C5E7E261C9CC30071592F /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
+		BE2C5E8B261C9D400071592F /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		BE2C5E94261C9EA20071592F /* AssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
+		BE2C5EA3261C9FFA0071592F /* AssetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
+		BE2C5EAB261CA0430071592F /* AssetFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetFlowController.swift; sourceTree = "<group>"; };
+		BE2C5EB9261CDD6E0071592F /* AssetsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		BE2C5EBF261CDDC20071592F /* AssetFiatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetFiatDTO.swift; sourceTree = "<group>"; };
+		BE2C5EC4261CDE670071592F /* AssetCryptoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCryptoDTO.swift; sourceTree = "<group>"; };
+		BE2C5EC9261CDECE0071592F /* AssetCommoditiesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCommoditiesDTO.swift; sourceTree = "<group>"; };
+		BE2C5ECF261CDF1B0071592F /* JsonMasterdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonMasterdata.swift; sourceTree = "<group>"; };
+		BE2C5ED5261CDF6D0071592F /* AssetsJsonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsJsonRepository.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE2C5E3C261C9A440071592F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE2C5E52261C9A440071592F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE2C5E5D261C9A440071592F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE2C5E36261C9A440071592F = {
+			isa = PBXGroup;
+			children = (
+				BE2C5E41261C9A440071592F /* bitpanda-techtask */,
+				BE2C5E58261C9A440071592F /* bitpanda-techtaskTests */,
+				BE2C5E63261C9A440071592F /* bitpanda-techtaskUITests */,
+				BE2C5E40261C9A440071592F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE2C5E40261C9A440071592F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C5E3F261C9A440071592F /* bitpanda-techtask.app */,
+				BE2C5E55261C9A440071592F /* bitpanda-techtaskTests.xctest */,
+				BE2C5E60261C9A440071592F /* bitpanda-techtaskUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE2C5E41261C9A440071592F /* bitpanda-techtask */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C5EBE261CDDB40071592F /* Models */,
+				BE2C5E83261C9CE60071592F /* Protocols */,
+				BE2C5E87261C9CF90071592F /* Resources */,
+				BE2C5ED4261CDF4F0071592F /* Repositories */,
+				BE2C5E90261C9D4A0071592F /* FlowControllers */,
+				BE2C5E7A261C9C4E0071592F /* ViewControllers */,
+				BE2C5E99261C9F630071592F /* Views */,
+				BE2C5E42261C9A440071592F /* AppDelegate.swift */,
+				BE2C5E44261C9A440071592F /* SceneDelegate.swift */,
+				BE2C5E50261C9A440071592F /* Info.plist */,
+			);
+			path = "bitpanda-techtask";
+			sourceTree = "<group>";
+		};
+		BE2C5E58261C9A440071592F /* bitpanda-techtaskTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C5E59261C9A440071592F /* bitpanda_techtaskTests.swift */,
+				BE2C5E5B261C9A440071592F /* Info.plist */,
+			);
+			path = "bitpanda-techtaskTests";
+			sourceTree = "<group>";
+		};
+		BE2C5E63261C9A440071592F /* bitpanda-techtaskUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C5E64261C9A440071592F /* bitpanda_techtaskUITests.swift */,
+				BE2C5E66261C9A440071592F /* Info.plist */,
+			);
+			path = "bitpanda-techtaskUITests";
+			sourceTree = "<group>";
+		};
+		BE2C5E7A261C9C4E0071592F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C5EA3261C9FFA0071592F /* AssetViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BE2C5E83261C9CE60071592F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C5E7E261C9CC30071592F /* FlowController.swift */,
+				BE2C5EB9261CDD6E0071592F /* AssetsRepositoryProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BE2C5E87261C9CF90071592F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C5E4D261C9A440071592F /* LaunchScreen.storyboard */,
+				BE2C5E75261C9C250071592F /* Mastrerdata.json */,
+				BE2C5E4B261C9A440071592F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BE2C5E90261C9D4A0071592F /* FlowControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C5E8B261C9D400071592F /* AppController.swift */,
+				BE2C5EAB261CA0430071592F /* AssetFlowController.swift */,
+			);
+			path = FlowControllers;
+			sourceTree = "<group>";
+		};
+		BE2C5E99261C9F630071592F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C5E94261C9EA20071592F /* AssetView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BE2C5EBE261CDDB40071592F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C5ECE261CDF030071592F /* DTOs */,
+				BE2C5ECF261CDF1B0071592F /* JsonMasterdata.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BE2C5ECE261CDF030071592F /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C5EBF261CDDC20071592F /* AssetFiatDTO.swift */,
+				BE2C5EC4261CDE670071592F /* AssetCryptoDTO.swift */,
+				BE2C5EC9261CDECE0071592F /* AssetCommoditiesDTO.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		BE2C5ED4261CDF4F0071592F /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				BE2C5ED5261CDF6D0071592F /* AssetsJsonRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE2C5E3E261C9A440071592F /* bitpanda-techtask */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE2C5E69261C9A440071592F /* Build configuration list for PBXNativeTarget "bitpanda-techtask" */;
+			buildPhases = (
+				BE2C5E3B261C9A440071592F /* Sources */,
+				BE2C5E3C261C9A440071592F /* Frameworks */,
+				BE2C5E3D261C9A440071592F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "bitpanda-techtask";
+			productName = "bitpanda-techtask";
+			productReference = BE2C5E3F261C9A440071592F /* bitpanda-techtask.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE2C5E54261C9A440071592F /* bitpanda-techtaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE2C5E6C261C9A440071592F /* Build configuration list for PBXNativeTarget "bitpanda-techtaskTests" */;
+			buildPhases = (
+				BE2C5E51261C9A440071592F /* Sources */,
+				BE2C5E52261C9A440071592F /* Frameworks */,
+				BE2C5E53261C9A440071592F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE2C5E57261C9A440071592F /* PBXTargetDependency */,
+			);
+			name = "bitpanda-techtaskTests";
+			productName = "bitpanda-techtaskTests";
+			productReference = BE2C5E55261C9A440071592F /* bitpanda-techtaskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE2C5E5F261C9A440071592F /* bitpanda-techtaskUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE2C5E6F261C9A440071592F /* Build configuration list for PBXNativeTarget "bitpanda-techtaskUITests" */;
+			buildPhases = (
+				BE2C5E5C261C9A440071592F /* Sources */,
+				BE2C5E5D261C9A440071592F /* Frameworks */,
+				BE2C5E5E261C9A440071592F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE2C5E62261C9A440071592F /* PBXTargetDependency */,
+			);
+			name = "bitpanda-techtaskUITests";
+			productName = "bitpanda-techtaskUITests";
+			productReference = BE2C5E60261C9A440071592F /* bitpanda-techtaskUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE2C5E37261C9A440071592F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					BE2C5E3E261C9A440071592F = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					BE2C5E54261C9A440071592F = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = BE2C5E3E261C9A440071592F;
+					};
+					BE2C5E5F261C9A440071592F = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = BE2C5E3E261C9A440071592F;
+					};
+				};
+			};
+			buildConfigurationList = BE2C5E3A261C9A440071592F /* Build configuration list for PBXProject "bitpanda-techtask" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE2C5E36261C9A440071592F;
+			productRefGroup = BE2C5E40261C9A440071592F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE2C5E3E261C9A440071592F /* bitpanda-techtask */,
+				BE2C5E54261C9A440071592F /* bitpanda-techtaskTests */,
+				BE2C5E5F261C9A440071592F /* bitpanda-techtaskUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE2C5E3D261C9A440071592F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE2C5E76261C9C250071592F /* Mastrerdata.json in Resources */,
+				BE2C5E4F261C9A440071592F /* LaunchScreen.storyboard in Resources */,
+				BE2C5E4C261C9A440071592F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE2C5E53261C9A440071592F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE2C5E5E261C9A440071592F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE2C5E3B261C9A440071592F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE2C5E8C261C9D400071592F /* AppController.swift in Sources */,
+				BE2C5E43261C9A440071592F /* AppDelegate.swift in Sources */,
+				BE2C5E45261C9A440071592F /* SceneDelegate.swift in Sources */,
+				BE2C5ED6261CDF6D0071592F /* AssetsJsonRepository.swift in Sources */,
+				BE2C5E7F261C9CC30071592F /* FlowController.swift in Sources */,
+				BE2C5EA4261C9FFA0071592F /* AssetViewController.swift in Sources */,
+				BE2C5E95261C9EA20071592F /* AssetView.swift in Sources */,
+				BE2C5EC0261CDDC20071592F /* AssetFiatDTO.swift in Sources */,
+				BE2C5ED0261CDF1B0071592F /* JsonMasterdata.swift in Sources */,
+				BE2C5EC5261CDE670071592F /* AssetCryptoDTO.swift in Sources */,
+				BE2C5EBA261CDD6E0071592F /* AssetsRepositoryProtocol.swift in Sources */,
+				BE2C5EAC261CA0430071592F /* AssetFlowController.swift in Sources */,
+				BE2C5ECA261CDECE0071592F /* AssetCommoditiesDTO.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE2C5E51261C9A440071592F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE2C5E5A261C9A440071592F /* bitpanda_techtaskTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE2C5E5C261C9A440071592F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE2C5E65261C9A440071592F /* bitpanda_techtaskUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE2C5E57261C9A440071592F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE2C5E3E261C9A440071592F /* bitpanda-techtask */;
+			targetProxy = BE2C5E56261C9A440071592F /* PBXContainerItemProxy */;
+		};
+		BE2C5E62261C9A440071592F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE2C5E3E261C9A440071592F /* bitpanda-techtask */;
+			targetProxy = BE2C5E61261C9A440071592F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BE2C5E4D261C9A440071592F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE2C5E4E261C9A440071592F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE2C5E67261C9A440071592F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE2C5E68261C9A440071592F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE2C5E6A261C9A440071592F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "bitpanda-techtask/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.icanswiftabit.bitpanda-techtask";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE2C5E6B261C9A440071592F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "bitpanda-techtask/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.icanswiftabit.bitpanda-techtask";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BE2C5E6D261C9A440071592F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "bitpanda-techtaskTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.icanswiftabit.bitpanda-techtaskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bitpanda-techtask.app/bitpanda-techtask";
+			};
+			name = Debug;
+		};
+		BE2C5E6E261C9A440071592F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "bitpanda-techtaskTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.icanswiftabit.bitpanda-techtaskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bitpanda-techtask.app/bitpanda-techtask";
+			};
+			name = Release;
+		};
+		BE2C5E70261C9A440071592F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "bitpanda-techtaskUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.icanswiftabit.bitpanda-techtaskUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "bitpanda-techtask";
+			};
+			name = Debug;
+		};
+		BE2C5E71261C9A440071592F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "bitpanda-techtaskUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.icanswiftabit.bitpanda-techtaskUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "bitpanda-techtask";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE2C5E3A261C9A440071592F /* Build configuration list for PBXProject "bitpanda-techtask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE2C5E67261C9A440071592F /* Debug */,
+				BE2C5E68261C9A440071592F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE2C5E69261C9A440071592F /* Build configuration list for PBXNativeTarget "bitpanda-techtask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE2C5E6A261C9A440071592F /* Debug */,
+				BE2C5E6B261C9A440071592F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE2C5E6C261C9A440071592F /* Build configuration list for PBXNativeTarget "bitpanda-techtaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE2C5E6D261C9A440071592F /* Debug */,
+				BE2C5E6E261C9A440071592F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE2C5E6F261C9A440071592F /* Build configuration list for PBXNativeTarget "bitpanda-techtaskUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE2C5E70261C9A440071592F /* Debug */,
+				BE2C5E71261C9A440071592F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE2C5E37261C9A440071592F /* Project object */;
+}
