@@ -21,6 +21,7 @@ final class AppController {
 private extension AppController {
 
     func configuredRootViewController() -> UITabBarController {
+        rootViewController.tabBar.tintColor = UIColor(named: "PrimaryColor")
         rootViewController.viewControllers = [assetFlowController.rootViewController]
         return rootViewController
     }

@@ -25,6 +25,8 @@
 		BE2C5ECA261CDECE0071592F /* AssetCommoditiesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EC9261CDECE0071592F /* AssetCommoditiesDTO.swift */; };
 		BE2C5ED0261CDF1B0071592F /* JsonMasterdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5ECF261CDF1B0071592F /* JsonMasterdata.swift */; };
 		BE2C5ED6261CDF6D0071592F /* AssetJsonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5ED5261CDF6D0071592F /* AssetJsonRepository.swift */; };
+		BEA100B9261E6A8A00D64439 /* AssetTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA100B8261E6A8A00D64439 /* AssetTableDataSource.swift */; };
+		BEA100BF261E6B2200D64439 /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA100BE261E6B2200D64439 /* AssetModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		BE2C5EC9261CDECE0071592F /* AssetCommoditiesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCommoditiesDTO.swift; sourceTree = "<group>"; };
 		BE2C5ECF261CDF1B0071592F /* JsonMasterdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonMasterdata.swift; sourceTree = "<group>"; };
 		BE2C5ED5261CDF6D0071592F /* AssetJsonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetJsonRepository.swift; sourceTree = "<group>"; };
+		BEA100B8261E6A8A00D64439 /* AssetTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTableDataSource.swift; sourceTree = "<group>"; };
+		BEA100BE261E6B2200D64439 /* AssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,7 @@
 				BE2C5E90261C9D4A0071592F /* FlowControllers */,
 				BE2C5E7A261C9C4E0071592F /* ViewControllers */,
 				BE2C5E99261C9F630071592F /* Views */,
+				BEA100B7261E6A7600D64439 /* DataSources */,
 				BE2C5E42261C9A440071592F /* AppDelegate.swift */,
 				BE2C5E44261C9A440071592F /* SceneDelegate.swift */,
 				BE2C5E50261C9A440071592F /* Info.plist */,
@@ -200,6 +205,7 @@
 			children = (
 				BE2C5ECE261CDF030071592F /* DTOs */,
 				BE2C5ECF261CDF1B0071592F /* JsonMasterdata.swift */,
+				BEA100BE261E6B2200D64439 /* AssetModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,6 +226,14 @@
 				BE2C5ED5261CDF6D0071592F /* AssetJsonRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		BEA100B7261E6A7600D64439 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				BEA100B8261E6A8A00D64439 /* AssetTableDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEA100B9261E6A8A00D64439 /* AssetTableDataSource.swift in Sources */,
 				BE2C5E8C261C9D400071592F /* AppController.swift in Sources */,
 				BE2C5E43261C9A440071592F /* AppDelegate.swift in Sources */,
 				BE2C5E45261C9A440071592F /* SceneDelegate.swift in Sources */,
@@ -364,6 +379,7 @@
 				BE2C5EC5261CDE670071592F /* AssetCryptoDTO.swift in Sources */,
 				BE2C5EBA261CDD6E0071592F /* AssetRepositoryProtocol.swift in Sources */,
 				BE2C5EAC261CA0430071592F /* AssetFlowController.swift in Sources */,
+				BEA100BF261E6B2200D64439 /* AssetModel.swift in Sources */,
 				BE2C5ECA261CDECE0071592F /* AssetCommoditiesDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

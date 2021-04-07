@@ -8,7 +8,7 @@
 import UIKit
 
 final class AssetFlowController: FlowController {
-    private(set) lazy var rootViewController: UINavigationController = configureRootViewController()
+    private(set) lazy var rootViewController: UIViewController = configureRootViewController()
     private let assetRepository: AssetRepositoryProtocol
     
     init() {
@@ -21,7 +21,7 @@ final class AssetFlowController: FlowController {
           assetRepository = repository
     }
     
-    func configureRootViewController() -> UINavigationController {
-        return UINavigationController(rootViewController: AssetViewController(repository: assetRepository, on: DispatchQueue.main))
+    func configureRootViewController() -> UIViewController {
+        AssetViewController(repository: assetRepository, on: DispatchQueue.main)
     }
 }
