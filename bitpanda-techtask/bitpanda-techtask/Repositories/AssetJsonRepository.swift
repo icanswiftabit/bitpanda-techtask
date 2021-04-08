@@ -16,15 +16,15 @@ final class AssetJsonRepository: AssetRepositoryProtocol {
         self.source = source
     }
     
-    func getAssetsFiat() -> AnyPublisher<[AssetFiatDTO], Error> {
-        Just(source.assetFiat).setFailureType(to: Error.self).eraseToAnyPublisher()
+    func getAssetsFiats() -> AnyPublisher<[AssetFiatDTO], Error> {
+        Just(source.assetFiats).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
     
-    func getAssetsCrypto() -> AnyPublisher<[AssetCryptoDTO], Error> {
-        Just(source.assetCrypto).setFailureType(to: Error.self).eraseToAnyPublisher()
+    func getAssetsCryptos() -> AnyPublisher<[AssetCryptoDTO], Error> {
+        Just(source.assetCryptos).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
     
-    func getAssetsCommodities() -> AnyPublisher<[AssetCommoditiesDTO], Error> {
+    func getAssetsCommodities() -> AnyPublisher<[AssetCommodityDTO], Error> {
         Just(source.assetCommodities).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 }

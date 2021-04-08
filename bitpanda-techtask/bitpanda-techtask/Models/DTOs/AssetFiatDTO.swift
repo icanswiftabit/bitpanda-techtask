@@ -10,6 +10,8 @@ import Foundation
 struct AssetFiatDTO: Decodable {
     struct Attributes: Decodable {
         let name: String
+        let logo: String
+        let symbol: String
     }
     
     let id: String

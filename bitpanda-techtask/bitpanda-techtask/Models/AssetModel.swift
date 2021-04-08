@@ -9,18 +9,18 @@ import Combine
 
 final class AssetModel {
     enum SelectedAssetType: Int, CaseIterable {
-        case crypto, commodities, fiats
+        case cryptos, commodities, fiats
     }
     
     var currentTitle: CurrentValueSubject<String, Never> = CurrentValueSubject("All")
-    var fiats: CurrentValueSubject<[AssetFiatDTO], Never> = CurrentValueSubject([AssetFiatDTO]())
-    var crypto: CurrentValueSubject<[AssetCryptoDTO], Never> = CurrentValueSubject([AssetCryptoDTO]())
-    var commodities: CurrentValueSubject<[AssetCommoditiesDTO], Never> = CurrentValueSubject([AssetCommoditiesDTO]())
-    var selectedSegment: CurrentValueSubject<SelectedAssetType, Never> = CurrentValueSubject(.crypto)
+    var fiats: CurrentValueSubject<[AssetViewModel], Never> = CurrentValueSubject([AssetViewModel]())
+    var cryptos: CurrentValueSubject<[AssetViewModel], Never> = CurrentValueSubject([AssetViewModel]())
+    var commodities: CurrentValueSubject<[AssetViewModel], Never> = CurrentValueSubject([AssetViewModel]())
+    var selectedSegment: CurrentValueSubject<SelectedAssetType, Never> = CurrentValueSubject(.cryptos)
     
     var currentlySelectedCountOfAssets: Int {
         switch selectedSegment.value {
-        case .crypto: return crypto.value.count - 1
+        case .cryptos: return cryptos.value.count - 1
         case .commodities: return commodities.value.count - 1
         case .fiats: return fiats.value.count - 1
         }

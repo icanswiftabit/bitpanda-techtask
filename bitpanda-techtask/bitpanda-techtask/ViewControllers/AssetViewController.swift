@@ -50,8 +50,8 @@ private extension AssetViewController {
             .assign(to: \.value, on: assetModel.selectedSegment)
             .store(in: &bag)
         
-        assetModel.selectedSegment.combineLatest(assetModel.crypto) { selectedSegment, crypto -> Bool in
-            guard case .crypto = selectedSegment else { return false }
+        assetModel.selectedSegment.combineLatest(assetModel.cryptos) { selectedSegment, crypto -> Bool in
+            guard case .cryptos = selectedSegment else { return false }
             return true
         }
         .sink(receiveValue: reloadTableView(ifNeeded:))
@@ -78,21 +78,24 @@ private extension AssetViewController {
     }
     
     func initialFetch() {
-        repository.getAssetsFiat()
+        repository.getAssetsFiats()
             .receive(on: scheduler)
             .catch { _ -> Empty<[AssetFiatDTO], Never> in Empty<[AssetFiatDTO], Never>(completeImmediately: true) }
+            .map { dtos -> [AssetViewModel] in dtos.map { AssetViewModel(fiat: $0)} }
             .assign(to: \.value, on: assetModel.fiats)
             .store(in: &bag)
         
-        repository.getAssetsCrypto().print()
+        repository.getAssetsCryptos()
             .receive(on: scheduler)
             .catch { _ -> Empty<[AssetCryptoDTO], Never> in Empty<[AssetCryptoDTO], Never>(completeImmediately: true) }
-            .assign(to: \.value, on: assetModel.crypto)
+            .map { dtos -> [AssetViewModel] in dtos.map { AssetViewModel(crypto: $0)} }
+            .assign(to: \.value, on: assetModel.cryptos)
             .store(in: &bag)
         
-        repository.getAssetsCommodities().print()
+        repository.getAssetsCommodities()
             .receive(on: scheduler)
-            .catch { _ -> Empty<[AssetCommoditiesDTO], Never> in Empty<[AssetCommoditiesDTO], Never>(completeImmediately: true) }
+            .catch { _ -> Empty<[AssetCommodityDTO], Never> in Empty<[AssetCommodityDTO], Never>(completeImmediately: true) }
+            .map { dtos -> [AssetViewModel] in dtos.map { AssetViewModel(commodity: $0)} }
             .assign(to: \.value, on: assetModel.commodities)
             .store(in: &bag)
     }

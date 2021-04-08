@@ -8,9 +8,9 @@
 import Foundation
 
 struct JsonMasterdata: Decodable {
-    let assetCrypto: [AssetCryptoDTO]
-    let assetFiat: [AssetFiatDTO]
-    let assetCommodities: [AssetCommoditiesDTO]
+    let assetCryptos: [AssetCryptoDTO]
+    let assetFiats: [AssetFiatDTO]
+    let assetCommodities: [AssetCommodityDTO]
     
     enum DataKeys: String, CodingKey {
         case data
@@ -21,8 +21,8 @@ struct JsonMasterdata: Decodable {
     }
     
     enum AssetKeys: String, CodingKey {
-        case assetCrypto = "cryptocoins"
-        case assetFiat = "fiats"
+        case assetCryptos = "cryptocoins"
+        case assetFiats = "fiats"
         case assetCommodities = "commodities"
     }
     
@@ -30,8 +30,8 @@ struct JsonMasterdata: Decodable {
         let container = try decoder.container(keyedBy: DataKeys.self)
         let attributes = try container.nestedContainer(keyedBy: AttributesKeys.self, forKey: .data)
         let values = try attributes.nestedContainer(keyedBy: AssetKeys.self, forKey: .attributes)
-        self.assetCrypto = try! values.decode([AssetCryptoDTO].self, forKey: .assetCrypto)
-        self.assetFiat = try! values.decode([AssetFiatDTO].self, forKey: .assetFiat)
-        self.assetCommodities = try! values.decode([AssetCommoditiesDTO].self, forKey: .assetCommodities)
+        self.assetCryptos = try! values.decode([AssetCryptoDTO].self, forKey: .assetCryptos)
+        self.assetFiats = try! values.decode([AssetFiatDTO].self, forKey: .assetFiats)
+        self.assetCommodities = try! values.decode([AssetCommodityDTO].self, forKey: .assetCommodities)
     }
 }

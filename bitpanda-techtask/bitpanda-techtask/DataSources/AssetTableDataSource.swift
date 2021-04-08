@@ -19,14 +19,15 @@ final class AssetTableDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Asset") else { return UITableViewCell() } // Replace with proper identifier
+
+        let cell = tableView.dequeue(AssetCell.self)
         switch assetModel.selectedSegment.value {
-        case .crypto:
-            cell.textLabel?.text = assetModel.crypto.value[indexPath.row].attributes.name
+        case .cryptos:
+            cell.setUp(with: assetModel.cryptos.value[indexPath.row])
         case .commodities:
-            cell.textLabel?.text = assetModel.commodities.value[indexPath.row].attributes.name
+            cell.setUp(with: assetModel.commodities.value[indexPath.row])
         case .fiats:
-            cell.textLabel?.text = assetModel.fiats.value[indexPath.row].attributes.name
+            cell.setUp(with: assetModel.fiats.value[indexPath.row])
         }
         
         return cell

@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 final class AssetView: UIView {    
-    let selectedSegment: CurrentValueSubject<AssetModel.SelectedAssetType, Never> = CurrentValueSubject(.crypto)
+    let selectedSegment: CurrentValueSubject<AssetModel.SelectedAssetType, Never> = CurrentValueSubject(.cryptos)
     
     let reloadData: PassthroughSubject<Void, Never> = PassthroughSubject()
     
@@ -18,10 +18,12 @@ final class AssetView: UIView {
         set { tableView.dataSource = newValue }
     }
     
-    private struct Constants {
-        static let topMargin: CGFloat = 12.0
+    var delegate: UITableViewDelegate? {
+        get { tableView.delegate }
+        set { tableView.delegate = newValue }
     }
-    private let segmentControl: UISegmentedControl = UISegmentedControl(items: ["Crypto", "Commodities", "Fiats"])
+
+    private let segmentControl: UISegmentedControl = UISegmentedControl(items: ["Cryptos", "Commodities", "Fiats"])
     private let tableView: UITableView = UITableView()
     private var bag: Set<AnyCancellable> = Set<AnyCancellable>()
     
@@ -29,6 +31,7 @@ final class AssetView: UIView {
         super.init(frame: frame)
         setUpUI()
         setUpBindings()
+        setUpCells()
     }
     
     @available(*, unavailable)
@@ -60,20 +63,26 @@ private extension AssetView {
         addSubview(segmentControl)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Asset")
+
         tableView.allowsSelection = false
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = (UIConstants.Layout.margin * 2) + UIConstants.Layout.Icon.width
         addSubview(tableView)
         
         NSLayoutConstraint.activate([
             segmentControl.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             segmentControl.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            segmentControl.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: Constants.topMargin),
+            segmentControl.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: UIConstants.Layout.margin),
             
             tableView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
+    }
+    
+    func setUpCells() {
+        tableView.register(AssetCell.self)
     }
 }
 

@@ -8,7 +8,7 @@
 import Combine
 
 protocol AssetRepositoryProtocol {
-    func getAssetsFiat() -> AnyPublisher<[AssetFiatDTO], Error>
-    func getAssetsCrypto() -> AnyPublisher<[AssetCryptoDTO], Error>
-    func getAssetsCommodities() -> AnyPublisher<[AssetCommoditiesDTO], Error>
+    func getAssetsFiats() -> AnyPublisher<[AssetFiatDTO], Error>
+    func getAssetsCryptos() -> AnyPublisher<[AssetCryptoDTO], Error>
+    func getAssetsCommodities() -> AnyPublisher<[AssetCommodityDTO], Error>
 }
