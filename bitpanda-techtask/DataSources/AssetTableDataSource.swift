@@ -15,21 +15,13 @@ final class AssetTableDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        assetModel.currentlySelectedCountOfAssets
+        assetModel.currentlySelectedAssets.count - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeue(AssetCell.self)
-        switch assetModel.selectedSegment.value {
-        case .cryptos:
-            cell.setUp(with: assetModel.cryptos.value[indexPath.row])
-        case .commodities:
-            cell.setUp(with: assetModel.commodities.value[indexPath.row])
-        case .fiats:
-            cell.setUp(with: assetModel.fiats.value[indexPath.row])
-        }
-        
+        cell.setUp(with: assetModel.currentlySelectedAssets[indexPath.row])
         return cell
     }
 }

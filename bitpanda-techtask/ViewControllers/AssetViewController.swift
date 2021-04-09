@@ -50,53 +50,47 @@ private extension AssetViewController {
             .assign(to: \.value, on: assetModel.selectedSegment)
             .store(in: &bag)
         
-        assetModel.selectedSegment.combineLatest(assetModel.cryptos) { selectedSegment, crypto -> Bool in
-            guard case .cryptos = selectedSegment else { return false }
-            return true
-        }
-        .sink(receiveValue: reloadTableView(ifNeeded:))
-        .store(in: &bag)
+        assetModel.selectedSegment.combineLatest(assetModel.cryptos)
+            .filter { $0.0 == .cryptos }
+            .sink { _ in self.assetView.reloadData.send() }
+            .store(in: &bag)
         
-        assetModel.selectedSegment.combineLatest(assetModel.commodities) { selectedSegment, crypto -> Bool in
-            guard case .commodities = selectedSegment else { return false }
-            return true
-        }
-        .sink(receiveValue: reloadTableView(ifNeeded:))
-        .store(in: &bag)
+        assetModel.selectedSegment.combineLatest(assetModel.commodities)
+            .filter { $0.0 == .commodities }
+            .sink { _ in self.assetView.reloadData.send() }
+            .store(in: &bag)
         
-        assetModel.selectedSegment.combineLatest(assetModel.fiats) { selectedSegment, crypto -> Bool in
-            guard case .fiats = selectedSegment else { return false }
-            return true
+        assetModel.selectedSegment.combineLatest(assetModel.fiats)
+            .filter { $0.0 == .fiats }
+            .sink { _ in self.assetView.reloadData.send() }
+            .store(in: &bag)
+        
+        assetModel.$currentTitle.sink { [weak self] title in
+            self?.title = title
         }
-        .sink(receiveValue: reloadTableView(ifNeeded:))
         .store(in: &bag)
-    }
-    
-    func reloadTableView(ifNeeded: Bool) {
-        guard ifNeeded else { return }
-        assetView.reloadData.send()
     }
     
     func initialFetch() {
         repository.getAssetsFiats()
             .receive(on: scheduler)
             .catch { _ -> Empty<[AssetFiatDTO], Never> in Empty<[AssetFiatDTO], Never>(completeImmediately: true) }
-            .map { dtos -> [AssetViewModel] in dtos.map { AssetViewModel(fiat: $0)} }
-            .assign(to: \.value, on: assetModel.fiats)
+            .map { dtos -> [AssetFiatViewModel] in dtos.map { AssetFiatViewModel(fiat: $0)} }
+            .sink { [weak self] fiats in self?.assetModel.fiats.send(fiats) }
             .store(in: &bag)
         
         repository.getAssetsCryptos()
             .receive(on: scheduler)
             .catch { _ -> Empty<[AssetCryptoDTO], Never> in Empty<[AssetCryptoDTO], Never>(completeImmediately: true) }
             .map { dtos -> [AssetViewModel] in dtos.map { AssetViewModel(crypto: $0)} }
-            .assign(to: \.value, on: assetModel.cryptos)
+            .sink { [weak self] cryptos in self?.assetModel.cryptos.send(cryptos) }
             .store(in: &bag)
         
         repository.getAssetsCommodities()
             .receive(on: scheduler)
             .catch { _ -> Empty<[AssetCommodityDTO], Never> in Empty<[AssetCommodityDTO], Never>(completeImmediately: true) }
             .map { dtos -> [AssetViewModel] in dtos.map { AssetViewModel(commodity: $0)} }
-            .assign(to: \.value, on: assetModel.commodities)
+            .sink { [weak self] commodities in self?.assetModel.commodities.send(commodities) }
             .store(in: &bag)
     }
 }

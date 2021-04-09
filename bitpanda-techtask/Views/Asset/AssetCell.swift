@@ -24,16 +24,13 @@ final class AssetCell: UITableViewCell, ReusableCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUp(with viewModel: AssetViewModel) {
-        let placeholder: UIImage? = UIImage(systemName: "coloncurrencysign.circle")
-        iconView.kf.setImage(with: viewModel.iconLightUrl, placeholder: placeholder, options: [.processor(SVGProcessor())])
-        nameLabel.text = viewModel.name
-        symbolLabel.text = "(\(viewModel.symbol))"
-//        avgPriceLabel.text = "\(viewModel.avgPrice)
-        if let averagePrice = viewModel.avgPrice {
-            avgPriceLabel.text = averagePrice.price.currency(symbol: "EUR", precision: averagePrice.precision)
+    func setUp(with viewModel: AssetViewModelProtocol) {
+        if let assetViewModel = viewModel as? AssetViewModel {
+            setUp(with: assetViewModel)
+        } else if let assetFiatViewModel = viewModel as? AssetFiatViewModel {
+            setUp(with: assetFiatViewModel)
         } else {
-            avgPriceLabel.text = nil
+            assertionFailure("Type of view model not recognized")
         }
     }
 }
@@ -68,12 +65,29 @@ private extension AssetCell {
             nameLabel.topAnchor.constraint(equalTo: iconView.topAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: UIConstants.Layout.innerSpacing),
             
-            symbolLabel.firstBaselineAnchor.constraint(equalTo: nameLabel.firstBaselineAnchor),
-            symbolLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: UIConstants.Layout.innerSpacing),
+            symbolLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: UIConstants.Layout.innerSpacing),
+            symbolLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: UIConstants.Layout.innerSpacing),
             
             avgPriceLabel.firstBaselineAnchor.constraint(equalTo: nameLabel.firstBaselineAnchor),
             avgPriceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -UIConstants.Layout.margin)
         ])
+    }
+    
+    func setUp(with viewModel: AssetViewModel) {
+        let placeholder: UIImage? = UIImage(systemName: "coloncurrencysign.circle")
+        iconView.kf.setImage(with: viewModel.iconLightUrl, placeholder: placeholder, options: [.processor(SVGProcessor())])
+        nameLabel.text = viewModel.name
+        symbolLabel.text = "(\(viewModel.symbol))"
+
+        avgPriceLabel.text = viewModel.averagePrice.price.currency(symbol: "EUR", precision: viewModel.averagePrice.precision)
+    }
+    
+    func setUp(with viewModel: AssetFiatViewModel) {
+        let placeholder: UIImage? = UIImage(systemName: "coloncurrencysign.circle")
+        iconView.kf.setImage(with: viewModel.iconLightUrl, placeholder: placeholder, options: [.processor(SVGProcessor())])
+        nameLabel.text = viewModel.name
+        symbolLabel.text = "(\(viewModel.symbol))"
+        avgPriceLabel.text = nil
     }
 }
 

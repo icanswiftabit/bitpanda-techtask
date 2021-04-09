@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct AssetViewModel {
-    struct AveragePrice {
+struct AssetViewModel: AssetViewModelProtocol, Equatable {
+    struct AveragePrice: Equatable {
         let price: String
         let precision: Int
     }
@@ -17,26 +17,19 @@ struct AssetViewModel {
 //    let iconDarkUrl: URL
     let name: String
     let symbol: String
-    let avgPrice: AveragePrice?
+    let averagePrice: AveragePrice
     
     init(crypto: AssetCryptoDTO) {
         self.name = crypto.attributes.name
         self.iconLightUrl = URL(string: crypto.attributes.logo)
         self.symbol = crypto.attributes.symbol
-        self.avgPrice = AveragePrice(price: crypto.attributes.avgPrice, precision: crypto.attributes.precisionForFiatPrice)
+        self.averagePrice = AveragePrice(price: crypto.attributes.avgPrice, precision: crypto.attributes.precisionForFiatPrice)
     }
     
     init(commodity: AssetCommodityDTO) {
         self.name = commodity.attributes.name
         self.iconLightUrl = URL(string: commodity.attributes.logo)
         self.symbol = commodity.attributes.symbol
-        self.avgPrice = AveragePrice(price: commodity.attributes.avgPrice, precision: commodity.attributes.precisionForFiatPrice)
-    }
-    
-    init(fiat: AssetFiatDTO) {
-        self.name = fiat.attributes.name
-        self.iconLightUrl = URL(string: fiat.attributes.logo)
-        self.symbol = fiat.attributes.symbol
-        self.avgPrice = nil
+        self.averagePrice = AveragePrice(price: commodity.attributes.avgPrice, precision: commodity.attributes.precisionForFiatPrice)
     }
 }

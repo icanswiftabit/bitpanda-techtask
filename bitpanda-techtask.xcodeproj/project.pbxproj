@@ -11,9 +11,6 @@
 		BE2C5E45261C9A440071592F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E44261C9A440071592F /* SceneDelegate.swift */; };
 		BE2C5E4C261C9A440071592F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE2C5E4B261C9A440071592F /* Assets.xcassets */; };
 		BE2C5E4F261C9A440071592F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2C5E4D261C9A440071592F /* LaunchScreen.storyboard */; };
-		BE2C5E5A261C9A440071592F /* bitpanda_techtaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E59261C9A440071592F /* bitpanda_techtaskTests.swift */; };
-		BE2C5E65261C9A440071592F /* bitpanda_techtaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E64261C9A440071592F /* bitpanda_techtaskUITests.swift */; };
-		BE2C5E76261C9C250071592F /* Mastrerdata.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2C5E75261C9C250071592F /* Mastrerdata.json */; };
 		BE2C5E7F261C9CC30071592F /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E7E261C9CC30071592F /* FlowController.swift */; };
 		BE2C5E8C261C9D400071592F /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E8B261C9D400071592F /* AppController.swift */; };
 		BE2C5E95261C9EA20071592F /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E94261C9EA20071592F /* AssetView.swift */; };
@@ -25,6 +22,11 @@
 		BE2C5ECA261CDECE0071592F /* AssetCommodityDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5EC9261CDECE0071592F /* AssetCommodityDTO.swift */; };
 		BE2C5ED0261CDF1B0071592F /* JsonMasterdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5ECF261CDF1B0071592F /* JsonMasterdata.swift */; };
 		BE2C5ED6261CDF6D0071592F /* AssetJsonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5ED5261CDF6D0071592F /* AssetJsonRepository.swift */; };
+		BE5F70372620DCBE0035E601 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BE5F70362620DCBE0035E601 /* README.md */; };
+		BE5F70422620E8AB0035E601 /* Masterdata.json in Resources */ = {isa = PBXBuildFile; fileRef = BE5F70412620E8AB0035E601 /* Masterdata.json */; };
+		BE5F70472620E8EE0035E601 /* AssetFiatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F70462620E8EE0035E601 /* AssetFiatViewModel.swift */; };
+		BE5F704C2620E9140035E601 /* AssetViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F704B2620E9140035E601 /* AssetViewModelProtocol.swift */; };
+		BE5F70512620E94E0035E601 /* AssetModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F70502620E94E0035E601 /* AssetModelTests.swift */; };
 		BEA100B9261E6A8A00D64439 /* AssetTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA100B8261E6A8A00D64439 /* AssetTableDataSource.swift */; };
 		BEA100BF261E6B2200D64439 /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA100BE261E6B2200D64439 /* AssetModel.swift */; };
 		BEA100CB261F7B6B00D64439 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BEA100CA261F7B6B00D64439 /* Kingfisher */; };
@@ -44,13 +46,6 @@
 			remoteGlobalIDString = BE2C5E3E261C9A440071592F;
 			remoteInfo = "bitpanda-techtask";
 		};
-		BE2C5E61261C9A440071592F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE2C5E37261C9A440071592F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BE2C5E3E261C9A440071592F;
-			remoteInfo = "bitpanda-techtask";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -61,12 +56,7 @@
 		BE2C5E4E261C9A440071592F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE2C5E50261C9A440071592F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE2C5E55261C9A440071592F /* bitpanda-techtaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bitpanda-techtaskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE2C5E59261C9A440071592F /* bitpanda_techtaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bitpanda_techtaskTests.swift; sourceTree = "<group>"; };
 		BE2C5E5B261C9A440071592F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE2C5E60261C9A440071592F /* bitpanda-techtaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bitpanda-techtaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE2C5E64261C9A440071592F /* bitpanda_techtaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bitpanda_techtaskUITests.swift; sourceTree = "<group>"; };
-		BE2C5E66261C9A440071592F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE2C5E75261C9C250071592F /* Mastrerdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Mastrerdata.json; sourceTree = "<group>"; };
 		BE2C5E7E261C9CC30071592F /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		BE2C5E8B261C9D400071592F /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		BE2C5E94261C9EA20071592F /* AssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
@@ -78,6 +68,11 @@
 		BE2C5EC9261CDECE0071592F /* AssetCommodityDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCommodityDTO.swift; sourceTree = "<group>"; };
 		BE2C5ECF261CDF1B0071592F /* JsonMasterdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonMasterdata.swift; sourceTree = "<group>"; };
 		BE2C5ED5261CDF6D0071592F /* AssetJsonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetJsonRepository.swift; sourceTree = "<group>"; };
+		BE5F70362620DCBE0035E601 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BE5F70412620E8AB0035E601 /* Masterdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Masterdata.json; sourceTree = "<group>"; };
+		BE5F70462620E8EE0035E601 /* AssetFiatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetFiatViewModel.swift; sourceTree = "<group>"; };
+		BE5F704B2620E9140035E601 /* AssetViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewModelProtocol.swift; sourceTree = "<group>"; };
+		BE5F70502620E94E0035E601 /* AssetModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModelTests.swift; sourceTree = "<group>"; };
 		BEA100B8261E6A8A00D64439 /* AssetTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTableDataSource.swift; sourceTree = "<group>"; };
 		BEA100BE261E6B2200D64439 /* AssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
 		BEA100CF261F7BDA00D64439 /* AssetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCell.swift; sourceTree = "<group>"; };
@@ -104,22 +99,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE2C5E5D261C9A440071592F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		BE2C5E36261C9A440071592F = {
 			isa = PBXGroup;
 			children = (
+				BE5F70362620DCBE0035E601 /* README.md */,
 				BE2C5E41261C9A440071592F /* bitpanda-techtask */,
 				BE2C5E58261C9A440071592F /* bitpanda-techtaskTests */,
-				BE2C5E63261C9A440071592F /* bitpanda-techtaskUITests */,
 				BE2C5E40261C9A440071592F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,7 +117,6 @@
 			children = (
 				BE2C5E3F261C9A440071592F /* bitpanda-techtask.app */,
 				BE2C5E55261C9A440071592F /* bitpanda-techtaskTests.xctest */,
-				BE2C5E60261C9A440071592F /* bitpanda-techtaskUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,19 +143,10 @@
 		BE2C5E58261C9A440071592F /* bitpanda-techtaskTests */ = {
 			isa = PBXGroup;
 			children = (
-				BE2C5E59261C9A440071592F /* bitpanda_techtaskTests.swift */,
 				BE2C5E5B261C9A440071592F /* Info.plist */,
+				BE5F70502620E94E0035E601 /* AssetModelTests.swift */,
 			);
 			path = "bitpanda-techtaskTests";
-			sourceTree = "<group>";
-		};
-		BE2C5E63261C9A440071592F /* bitpanda-techtaskUITests */ = {
-			isa = PBXGroup;
-			children = (
-				BE2C5E64261C9A440071592F /* bitpanda_techtaskUITests.swift */,
-				BE2C5E66261C9A440071592F /* Info.plist */,
-			);
-			path = "bitpanda-techtaskUITests";
 			sourceTree = "<group>";
 		};
 		BE2C5E7A261C9C4E0071592F /* ViewControllers */ = {
@@ -185,6 +163,7 @@
 				BE2C5E7E261C9CC30071592F /* FlowController.swift */,
 				BE2C5EB9261CDD6E0071592F /* AssetRepositoryProtocol.swift */,
 				BEAFA29F261FAF3500EBC0B5 /* ReusableCell.swift */,
+				BE5F704B2620E9140035E601 /* AssetViewModelProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -192,8 +171,8 @@
 		BE2C5E87261C9CF90071592F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BE5F70412620E8AB0035E601 /* Masterdata.json */,
 				BE2C5E4D261C9A440071592F /* LaunchScreen.storyboard */,
-				BE2C5E75261C9C250071592F /* Mastrerdata.json */,
 				BE2C5E4B261C9A440071592F /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -259,6 +238,7 @@
 				BE2C5E94261C9EA20071592F /* AssetView.swift */,
 				BEA100CF261F7BDA00D64439 /* AssetCell.swift */,
 				BEAFA29A261F9F8800EBC0B5 /* AssetViewModel.swift */,
+				BE5F70462620E8EE0035E601 /* AssetFiatViewModel.swift */,
 			);
 			path = Asset;
 			sourceTree = "<group>";
@@ -313,24 +293,6 @@
 			productReference = BE2C5E55261C9A440071592F /* bitpanda-techtaskTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BE2C5E5F261C9A440071592F /* bitpanda-techtaskUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BE2C5E6F261C9A440071592F /* Build configuration list for PBXNativeTarget "bitpanda-techtaskUITests" */;
-			buildPhases = (
-				BE2C5E5C261C9A440071592F /* Sources */,
-				BE2C5E5D261C9A440071592F /* Frameworks */,
-				BE2C5E5E261C9A440071592F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BE2C5E62261C9A440071592F /* PBXTargetDependency */,
-			);
-			name = "bitpanda-techtaskUITests";
-			productName = "bitpanda-techtaskUITests";
-			productReference = BE2C5E60261C9A440071592F /* bitpanda-techtaskUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -344,10 +306,6 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					BE2C5E54261C9A440071592F = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = BE2C5E3E261C9A440071592F;
-					};
-					BE2C5E5F261C9A440071592F = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = BE2C5E3E261C9A440071592F;
 					};
@@ -372,7 +330,6 @@
 			targets = (
 				BE2C5E3E261C9A440071592F /* bitpanda-techtask */,
 				BE2C5E54261C9A440071592F /* bitpanda-techtaskTests */,
-				BE2C5E5F261C9A440071592F /* bitpanda-techtaskUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -382,20 +339,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE2C5E76261C9C250071592F /* Mastrerdata.json in Resources */,
 				BE2C5E4F261C9A440071592F /* LaunchScreen.storyboard in Resources */,
+				BE5F70422620E8AB0035E601 /* Masterdata.json in Resources */,
+				BE5F70372620DCBE0035E601 /* README.md in Resources */,
 				BE2C5E4C261C9A440071592F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BE2C5E53261C9A440071592F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE2C5E5E261C9A440071592F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -409,6 +360,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5F70472620E8EE0035E601 /* AssetFiatViewModel.swift in Sources */,
+				BE5F704C2620E9140035E601 /* AssetViewModelProtocol.swift in Sources */,
 				BEAFA2A0261FAF3500EBC0B5 /* ReusableCell.swift in Sources */,
 				BEA100B9261E6A8A00D64439 /* AssetTableDataSource.swift in Sources */,
 				BE2C5E8C261C9D400071592F /* AppController.swift in Sources */,
@@ -436,15 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE2C5E5A261C9A440071592F /* bitpanda_techtaskTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE2C5E5C261C9A440071592F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BE2C5E65261C9A440071592F /* bitpanda_techtaskUITests.swift in Sources */,
+				BE5F70512620E94E0035E601 /* AssetModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,11 +400,6 @@
 			isa = PBXTargetDependency;
 			target = BE2C5E3E261C9A440071592F /* bitpanda-techtask */;
 			targetProxy = BE2C5E56261C9A440071592F /* PBXContainerItemProxy */;
-		};
-		BE2C5E62261C9A440071592F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BE2C5E3E261C9A440071592F /* bitpanda-techtask */;
-			targetProxy = BE2C5E61261C9A440071592F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -669,44 +609,6 @@
 			};
 			name = Release;
 		};
-		BE2C5E70261C9A440071592F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "bitpanda-techtaskUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.icanswiftabit.bitpanda-techtaskUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "bitpanda-techtask";
-			};
-			name = Debug;
-		};
-		BE2C5E71261C9A440071592F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "bitpanda-techtaskUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.icanswiftabit.bitpanda-techtaskUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "bitpanda-techtask";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -733,15 +635,6 @@
 			buildConfigurations = (
 				BE2C5E6D261C9A440071592F /* Debug */,
 				BE2C5E6E261C9A440071592F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BE2C5E6F261C9A440071592F /* Build configuration list for PBXNativeTarget "bitpanda-techtaskUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BE2C5E70261C9A440071592F /* Debug */,
-				BE2C5E71261C9A440071592F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
