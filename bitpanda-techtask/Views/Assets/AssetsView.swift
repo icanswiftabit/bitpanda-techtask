@@ -12,6 +12,7 @@ final class AssetsView: UIView {
     @Published private(set) var selectedSegment: AssetsModel.SelectedAssetType = .cryptos
     
     let reloadData: PassthroughSubject<Void, Never> = PassthroughSubject()
+    let showSegmentControl: CurrentValueSubject<Bool, Never> = CurrentValueSubject(false)
     
     var dataSoruce: UITableViewDataSource? {
         get { tableView.dataSource }
@@ -25,6 +26,8 @@ final class AssetsView: UIView {
 
     private let segmentControl: UISegmentedControl = UISegmentedControl(items: ["Cryptos", "Commodities", "Fiats"])
     private let tableView: UITableView = UITableView()
+    private var topTableViewConstraintWithSegmentShowed: NSLayoutConstraint?
+    private var topTableViewConstraintWithSegmentHidden: NSLayoutConstraint?
     private var bag: Set<AnyCancellable> = Set<AnyCancellable>()
     
     override init(frame: CGRect) {
@@ -52,6 +55,42 @@ private extension AssetsView {
             self?.tableView.reloadData()
         }
         .store(in: &bag)
+        
+        showSegmentControl.sink { [weak self] show in
+            show ? self?.addSegmentControl() : self?.removeSegmentControl()
+        }
+        .store(in: &bag)
+    }
+    
+    func addSegmentControl() {
+        addSubview(segmentControl)
+        NSLayoutConstraint.activate([
+            segmentControl.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            segmentControl.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            segmentControl.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: UIConstants.Layout.margin)
+        ])
+        layoutIfNeeded()
+        
+        topTableViewConstraintWithSegmentHidden?.isActive = false
+        topTableViewConstraintWithSegmentShowed?.isActive = true
+        
+        UIView.animate(withDuration: UIConstants.Layout.animation, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction]) {
+            self.layoutIfNeeded()
+            self.segmentControl.alpha = 1
+        } completion: { _ in }
+
+    }
+    
+    func removeSegmentControl() {
+        topTableViewConstraintWithSegmentHidden?.isActive = true
+        topTableViewConstraintWithSegmentShowed?.isActive = false
+        
+        UIView.animate(withDuration: UIConstants.Layout.animation, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction]) {
+            self.layoutIfNeeded()
+            self.segmentControl.alpha = 0
+        } completion: { _ in
+            self.segmentControl.removeFromSuperview()
+        }
     }
     
     func setUpUI() {
@@ -60,8 +99,6 @@ private extension AssetsView {
         segmentControl.selectedSegmentIndex = selectedSegment.rawValue
         segmentControl.translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(segmentControl)
-        
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         tableView.allowsSelection = false
@@ -69,16 +106,16 @@ private extension AssetsView {
         tableView.estimatedRowHeight = (UIConstants.Layout.margin * 2) + UIConstants.Layout.Icon.width
         addSubview(tableView)
         
+        let topTableViewConstraint = tableView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor)
+        topTableViewConstraintWithSegmentShowed = tableView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: UIConstants.Layout.SegmentControl.height)
+        
         NSLayoutConstraint.activate([
-            segmentControl.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            segmentControl.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            segmentControl.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: UIConstants.Layout.margin),
-            
-            tableView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor),
+            topTableViewConstraint,
             tableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
+        topTableViewConstraintWithSegmentHidden = topTableViewConstraint
     }
     
     func setUpCells() {

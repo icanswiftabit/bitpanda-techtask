@@ -23,6 +23,7 @@ final class AssetsViewController<S>: UIViewController where S: Scheduler {
         super.init(nibName: nil, bundle: nil)
         
         setUpBindings()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle"), style: .plain, target: self, action: #selector(showSegmentControl))
         tabBarItem = UITabBarItem(title: "Asset", image: UIImage(systemName: "bitcoinsign.circle"), selectedImage: UIImage(systemName: "bitcoinsign.circle.fill"))
         assetsView.dataSoruce = assetsTableDataSource
     }
@@ -41,6 +42,12 @@ final class AssetsViewController<S>: UIViewController where S: Scheduler {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         initialFetch()
+    }
+    
+    @objc private func showSegmentControl() {
+        assetsView.showSegmentControl.send(!assetsView.showSegmentControl.value)
+        let buttonImage = assetsView.showSegmentControl.value ? UIImage(systemName: "line.horizontal.3.decrease.circle.fill") : UIImage(systemName: "line.horizontal.3.decrease.circle")
+        navigationItem.rightBarButtonItem?.image = buttonImage
     }
 }
 
