@@ -12,6 +12,7 @@ final class WalletsView: UIView {
     @Published private(set) var selectedSegment: WalletsModel.SelectedWalletType = .all
     
     let reloadData: PassthroughSubject<Void, Never> = PassthroughSubject()
+    let showSegmentControl: CurrentValueSubject<Bool, Never> = CurrentValueSubject(false)
     
     var dataSoruce: UITableViewDataSource? {
         get { tableView.dataSource }
@@ -23,8 +24,10 @@ final class WalletsView: UIView {
         set { tableView.delegate = newValue }
     }
     
-    private let segmentControl: UISegmentedControl = UISegmentedControl(items: ["All", "Wallets", "Commodities", "Fiats"])
+    private let segmentControl: UISegmentedControl = UISegmentedControl(items: ["Wallets", "Commodities", "Fiats"])
     private let tableView: UITableView = UITableView()
+    private var topTableViewConstraintWithSegmentShowed: NSLayoutConstraint?
+    private var topTableViewConstraintWithSegmentHidden: NSLayoutConstraint?
     private var bag: Set<AnyCancellable> = Set<AnyCancellable>()
     
     override init(frame: CGRect) {
@@ -43,8 +46,7 @@ final class WalletsView: UIView {
 private extension WalletsView {
     func setUpBindings() {
         segmentControl.publisher(for: \.selectedSegmentIndex).sink { [weak self] tab in
-            guard let selectedAssetType = WalletsModel.SelectedWalletType(rawValue: tab) else { assert(false, "SelectedWalletType should be created") }
-            self?.selectedSegment = selectedAssetType
+            self?.updateSelectedSegment(with: tab)
         }
         .store(in: &bag)
         
@@ -52,15 +54,57 @@ private extension WalletsView {
             self?.tableView.reloadData()
         }
         .store(in: &bag)
+        
+        showSegmentControl.sink { [weak self] show in
+            show ? self?.addSegmentControl() : self?.removeSegmentControl()
+        }
+        .store(in: &bag)
+    }
+    
+    func addSegmentControl() {
+        updateSelectedSegment(with: segmentControl.selectedSegmentIndex)
+        addSubview(segmentControl)
+        NSLayoutConstraint.activate([
+            segmentControl.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            segmentControl.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            segmentControl.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: UIConstants.Layout.margin)
+        ])
+        layoutIfNeeded()
+        
+        topTableViewConstraintWithSegmentHidden?.isActive = false
+        topTableViewConstraintWithSegmentShowed?.isActive = true
+        
+        UIView.animate(withDuration: UIConstants.Layout.animation, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction]) {
+            self.layoutIfNeeded()
+            self.segmentControl.alpha = 1
+        } completion: { _ in }
+
+    }
+    
+    func removeSegmentControl() {
+        selectedSegment = .all
+        topTableViewConstraintWithSegmentHidden?.isActive = true
+        topTableViewConstraintWithSegmentShowed?.isActive = false
+        
+        UIView.animate(withDuration: UIConstants.Layout.animation, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction]) {
+            self.layoutIfNeeded()
+            self.segmentControl.alpha = 0
+        } completion: { _ in
+            self.segmentControl.removeFromSuperview()
+        }
+    }
+    
+    func updateSelectedSegment(with tab: Int) {
+        guard let selectedAssetType = WalletsModel.SelectedWalletType(rawValue: tab + 1) else { assert(false, "SelectedWalletType should be created") }
+        selectedSegment = selectedAssetType
     }
     
     func setUpUI() {
         backgroundColor = .systemBackground
         segmentControl.selectedSegmentTintColor = UIColor(named: "PrimaryColor")
-        segmentControl.selectedSegmentIndex = selectedSegment.rawValue
+        segmentControl.selectedSegmentIndex = WalletsModel.SelectedWalletType.all.rawValue
         segmentControl.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(segmentControl)
+        segmentControl.backgroundColor = .systemBackground
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -69,20 +113,19 @@ private extension WalletsView {
         tableView.estimatedRowHeight = (UIConstants.Layout.margin * 2) + UIConstants.Layout.Icon.width
         addSubview(tableView)
         
+        let topTableViewConstraint = tableView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor)
+        topTableViewConstraintWithSegmentShowed = tableView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: UIConstants.Layout.SegmentControl.height)
+        
         NSLayoutConstraint.activate([
-            segmentControl.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            segmentControl.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            segmentControl.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: UIConstants.Layout.margin),
-            
-            tableView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor),
+            topTableViewConstraint,
             tableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
+        topTableViewConstraintWithSegmentHidden = topTableViewConstraint
     }
     
     func setUpCells() {
-//        tableView.register(WalletCell.self)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "WalletCell")
     }
 }

@@ -11,9 +11,14 @@ struct UIConstants {
     struct Layout {
         static let margin: CGFloat = 12.0
         static let innerSpacing: CGFloat = 8.0
+        static let animation: Double = 0.25
         
         struct Icon {
-            static var width: CGFloat = 50.0
+            static let width: CGFloat = 50.0
+        }
+        
+        struct SegmentControl {
+            static let height: CGFloat = 60.0
         }
     }
     
