@@ -1,15 +1,15 @@
 //
-//  AssetView.swift
+//  WalletsView.swift
 //  bitpanda-techtask
 //
-//  Created by Blazej Wdowikowski on 06/04/2021.
+//  Created by Blazej Wdowikowski on 10/04/2021.
 //
 
 import UIKit
 import Combine
 
-final class AssetView: UIView {    
-    let selectedSegment: CurrentValueSubject<AssetModel.SelectedAssetType, Never> = CurrentValueSubject(.cryptos)
+final class WalletsView: UIView {
+    @Published private(set) var selectedSegment: WalletsModel.SelectedWalletType = .all
     
     let reloadData: PassthroughSubject<Void, Never> = PassthroughSubject()
     
@@ -22,8 +22,8 @@ final class AssetView: UIView {
         get { tableView.delegate }
         set { tableView.delegate = newValue }
     }
-
-    private let segmentControl: UISegmentedControl = UISegmentedControl(items: ["Cryptos", "Commodities", "Fiats"])
+    
+    private let segmentControl: UISegmentedControl = UISegmentedControl(items: ["All", "Wallets", "Commodities", "Fiats"])
     private let tableView: UITableView = UITableView()
     private var bag: Set<AnyCancellable> = Set<AnyCancellable>()
     
@@ -40,11 +40,11 @@ final class AssetView: UIView {
     }
 }
 
-private extension AssetView {
+private extension WalletsView {
     func setUpBindings() {
         segmentControl.publisher(for: \.selectedSegmentIndex).sink { [weak self] tab in
-            guard let selectedAssetType = AssetModel.SelectedAssetType(rawValue: tab) else { assert(false, "SelectedAssetType should be created") }
-            self?.selectedSegment.send(selectedAssetType)
+            guard let selectedAssetType = WalletsModel.SelectedWalletType(rawValue: tab) else { assert(false, "SelectedWalletType should be created") }
+            self?.selectedSegment = selectedAssetType
         }
         .store(in: &bag)
         
@@ -57,7 +57,7 @@ private extension AssetView {
     func setUpUI() {
         backgroundColor = .systemBackground
         segmentControl.selectedSegmentTintColor = UIColor(named: "PrimaryColor")
-        segmentControl.selectedSegmentIndex = selectedSegment.value.rawValue
+        segmentControl.selectedSegmentIndex = selectedSegment.rawValue
         segmentControl.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(segmentControl)
@@ -82,7 +82,7 @@ private extension AssetView {
     }
     
     func setUpCells() {
-        tableView.register(AssetCell.self)
+//        tableView.register(WalletCell.self)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "WalletCell")
     }
 }
-

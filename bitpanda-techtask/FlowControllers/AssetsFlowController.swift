@@ -1,5 +1,5 @@
 //
-//  AssetFlowController.swift
+//  AssetsFlowController.swift
 //  bitpanda-techtask
 //
 //  Created by Blazej Wdowikowski on 06/04/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AssetFlowController: FlowController {
+final class AssetsFlowController: FlowController {
     private(set) lazy var rootViewController: UINavigationController = configureRootViewController()
     private let assetRepository: AssetRepositoryProtocol
     
@@ -22,7 +22,7 @@ final class AssetFlowController: FlowController {
     }
     
     func configureRootViewController() -> UINavigationController {
-        let navigationController = UINavigationController(rootViewController: AssetViewController(repository: assetRepository, on: DispatchQueue.main))
+        let navigationController = UINavigationController(rootViewController: AssetsViewController(repository: assetRepository, on: DispatchQueue.main))
         navigationController.navigationBar.prefersLargeTitles = true
         return navigationController
     }

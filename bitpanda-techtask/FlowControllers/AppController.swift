@@ -10,7 +10,8 @@ import UIKit
 final class AppController {
 
     let rootViewController = UITabBarController()
-    private let assetFlowController = AssetFlowController()
+    private let assetFlowController = AssetsFlowController()
+    private let walletsFlowController = WalletsFlowController()
 
     func embedRootViewController(in window: UIWindow) {
         window.rootViewController = configuredRootViewController()
@@ -22,7 +23,7 @@ private extension AppController {
 
     func configuredRootViewController() -> UITabBarController {
         rootViewController.tabBar.tintColor = UIColor(named: "PrimaryColor")
-        rootViewController.viewControllers = [assetFlowController.rootViewController]
+        rootViewController.viewControllers = [assetFlowController.rootViewController, walletsFlowController.rootViewController]
         return rootViewController
     }
 }

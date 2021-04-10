@@ -14,7 +14,7 @@ final class AssetModelTests: XCTestCase {
     func test_hasCorrectValues() {
         
         // Arrange
-        let sut = AssetModel()
+        let sut = AssetsModel()
         let fiats = (0...10).map { AssetFiatViewModel.sample(id: "\($0)", hasWallets: $0 % 2 == 0) }
         let cryptos = (0...9).map { AssetViewModel.sample(id: "\($0)") }
         let commodities = (0...8).map { AssetViewModel.sample(id: "\($0)") }
@@ -37,7 +37,7 @@ final class AssetModelTests: XCTestCase {
     
     func test_hasCorrectValues_forSelectedSegment() {
         // Arrange
-        let sut = AssetModel()
+        let sut = AssetsModel()
         let fiats = (0...10).map { AssetFiatViewModel.sample(id: "\($0)", hasWallets: $0 % 2 == 0) }
         let fiatsWithWallets = fiats.filter { $0.hasWallets }
         let cryptos = (0...9).map { AssetViewModel.sample(id: "\($0)") }
@@ -51,7 +51,7 @@ final class AssetModelTests: XCTestCase {
             .sink { sut.commodities.send($0) }
         
         // Act
-        _ = Just(AssetModel.SelectedAssetType.fiats)
+        _ = Just(AssetsModel.SelectedAssetType.fiats)
             .assign(to: \.value, on: sut.selectedSegment)
             
         // Assert
@@ -59,7 +59,7 @@ final class AssetModelTests: XCTestCase {
         XCTAssert((sut.currentlySelectedAssets as! [AssetFiatViewModel]) == fiatsWithWallets)
         
         // Act
-        _ = Just(AssetModel.SelectedAssetType.commodities)
+        _ = Just(AssetsModel.SelectedAssetType.commodities)
             .assign(to: \.value, on: sut.selectedSegment)
             
         // Assert

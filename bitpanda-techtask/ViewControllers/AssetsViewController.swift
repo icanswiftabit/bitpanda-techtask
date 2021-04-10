@@ -8,23 +8,23 @@
 import UIKit
 import Combine
 
-final class AssetViewController<S>: UIViewController where S: Scheduler {
-    private let assetView: AssetView = AssetView()
+final class AssetsViewController<S>: UIViewController where S: Scheduler {
+    private let assetsView: AssetsView = AssetsView()
     private let repository: AssetRepositoryProtocol
-    private let assetModel: AssetModel = AssetModel()
-    private let assetTableDataSource: AssetTableDataSource
+    private let assetsModel: AssetsModel = AssetsModel()
+    private let assetsTableDataSource: AssetTableDataSource
     private let scheduler: S
     private var bag = Set<AnyCancellable>()
     
     init(repository: AssetRepositoryProtocol, on scheduler: S) {
         self.repository = repository
         self.scheduler = scheduler
-        self.assetTableDataSource = AssetTableDataSource(assetModel: self.assetModel)
+        self.assetsTableDataSource = AssetTableDataSource(assetsModel: self.assetsModel)
         super.init(nibName: nil, bundle: nil)
         
         setUpBindings()
         tabBarItem = UITabBarItem(title: "Asset", image: UIImage(systemName: "bitcoinsign.circle"), selectedImage: UIImage(systemName: "bitcoinsign.circle.fill"))
-        assetView.dataSoruce = assetTableDataSource
+        assetsView.dataSoruce = assetsTableDataSource
     }
     
     @available(*, unavailable)
@@ -33,7 +33,7 @@ final class AssetViewController<S>: UIViewController where S: Scheduler {
     }
     
     override func loadView() {
-        view = assetView
+        view = assetsView
     }
 
     override func viewDidLoad() {
@@ -44,53 +44,53 @@ final class AssetViewController<S>: UIViewController where S: Scheduler {
     }
 }
 
-private extension AssetViewController {
+private extension AssetsViewController {
     func setUpBindings() {
-        assetView.selectedSegment
-            .assign(to: \.value, on: assetModel.selectedSegment)
+        assetsView.$selectedSegment
+            .assign(to: \.value, on: assetsModel.selectedSegment)
             .store(in: &bag)
         
-        assetModel.selectedSegment.combineLatest(assetModel.cryptos)
+        assetsModel.selectedSegment.combineLatest(assetsModel.cryptos)
             .filter { $0.0 == .cryptos }
-            .sink { _ in self.assetView.reloadData.send() }
+            .sink { _ in self.assetsView.reloadData.send() }
             .store(in: &bag)
         
-        assetModel.selectedSegment.combineLatest(assetModel.commodities)
+        assetsModel.selectedSegment.combineLatest(assetsModel.commodities)
             .filter { $0.0 == .commodities }
-            .sink { _ in self.assetView.reloadData.send() }
+            .sink { _ in self.assetsView.reloadData.send() }
             .store(in: &bag)
         
-        assetModel.selectedSegment.combineLatest(assetModel.fiats)
+        assetsModel.selectedSegment.combineLatest(assetsModel.fiats)
             .filter { $0.0 == .fiats }
-            .sink { _ in self.assetView.reloadData.send() }
+            .sink { _ in self.assetsView.reloadData.send() }
             .store(in: &bag)
         
-        assetModel.$currentTitle.sink { [weak self] title in
+        assetsModel.$currentTitle.sink { [weak self] title in
             self?.title = title
         }
         .store(in: &bag)
     }
     
     func initialFetch() {
-        repository.getAssetsFiats()
+        repository.getFiatAssets()
             .receive(on: scheduler)
             .catch { _ -> Empty<[AssetFiatDTO], Never> in Empty<[AssetFiatDTO], Never>(completeImmediately: true) }
             .map { dtos -> [AssetFiatViewModel] in dtos.map { AssetFiatViewModel(fiat: $0)} }
-            .sink { [weak self] fiats in self?.assetModel.fiats.send(fiats) }
+            .sink { [weak self] fiats in self?.assetsModel.fiats.send(fiats) }
             .store(in: &bag)
         
-        repository.getAssetsCryptos()
+        repository.getCryptoAssets()
             .receive(on: scheduler)
             .catch { _ -> Empty<[AssetCryptoDTO], Never> in Empty<[AssetCryptoDTO], Never>(completeImmediately: true) }
             .map { dtos -> [AssetViewModel] in dtos.map { AssetViewModel(crypto: $0)} }
-            .sink { [weak self] cryptos in self?.assetModel.cryptos.send(cryptos) }
+            .sink { [weak self] cryptos in self?.assetsModel.cryptos.send(cryptos) }
             .store(in: &bag)
         
-        repository.getAssetsCommodities()
+        repository.getCommodityAssets()
             .receive(on: scheduler)
             .catch { _ -> Empty<[AssetCommodityDTO], Never> in Empty<[AssetCommodityDTO], Never>(completeImmediately: true) }
             .map { dtos -> [AssetViewModel] in dtos.map { AssetViewModel(commodity: $0)} }
-            .sink { [weak self] commodities in self?.assetModel.commodities.send(commodities) }
+            .sink { [weak self] commodities in self?.assetsModel.commodities.send(commodities) }
             .store(in: &bag)
     }
 }

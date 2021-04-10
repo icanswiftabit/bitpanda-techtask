@@ -1,5 +1,5 @@
 //
-//  AssetModel.swift
+//  AssetsModel.swift
 //  bitpanda-techtask
 //
 //  Created by Blazej Wdowikowski on 08/04/2021.
@@ -7,7 +7,7 @@
 
 import Combine
 
-final class AssetModel {
+final class AssetsModel {
     enum SelectedAssetType: Int, CaseIterable, CustomStringConvertible {
         case cryptos, commodities, fiats
         
@@ -41,7 +41,7 @@ final class AssetModel {
     }
 }
 
-private extension AssetModel {
+private extension AssetsModel {
     func setUpBindings() {
         selectedSegment.sink { [weak self] type in
             self?.currentTitle = type.description

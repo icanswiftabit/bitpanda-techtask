@@ -8,20 +8,20 @@
 import UIKit
 
 final class AssetTableDataSource: NSObject, UITableViewDataSource {
-    private let assetModel: AssetModel
+    private let assetsModel: AssetsModel
     
-    init(assetModel: AssetModel) {
-        self.assetModel = assetModel
+    init(assetsModel: AssetsModel) {
+        self.assetsModel = assetsModel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        assetModel.currentlySelectedAssets.count - 1
+        assetsModel.currentlySelectedAssets.count - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeue(AssetCell.self)
-        cell.setUp(with: assetModel.currentlySelectedAssets[indexPath.row])
+        cell.setUp(with: assetsModel.currentlySelectedAssets[indexPath.row])
         return cell
     }
 }

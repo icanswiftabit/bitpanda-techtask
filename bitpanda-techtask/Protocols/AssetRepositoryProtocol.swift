@@ -8,21 +8,21 @@
 import Combine
 
 protocol AssetRepositoryProtocol {
-    func getAssetsFiats() -> AnyPublisher<[AssetFiatDTO], Error>
-    func getAssetsCryptos() -> AnyPublisher<[AssetCryptoDTO], Error>
-    func getAssetsCommodities() -> AnyPublisher<[AssetCommodityDTO], Error>
+    func getFiatAssets() -> AnyPublisher<[AssetFiatDTO], Error>
+    func getCryptoAssets() -> AnyPublisher<[AssetCryptoDTO], Error>
+    func getCommodityAssets() -> AnyPublisher<[AssetCommodityDTO], Error>
 }
 
 struct EmptyAssetRepository: AssetRepositoryProtocol {
-    func getAssetsFiats() -> AnyPublisher<[AssetFiatDTO], Error> {
+    func getFiatAssets() -> AnyPublisher<[AssetFiatDTO], Error> {
         Just([]).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
     
-    func getAssetsCryptos() -> AnyPublisher<[AssetCryptoDTO], Error> {
+    func getCryptoAssets() -> AnyPublisher<[AssetCryptoDTO], Error> {
         Just([]).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
     
-    func getAssetsCommodities() -> AnyPublisher<[AssetCommodityDTO], Error> {
+    func getCommodityAssets() -> AnyPublisher<[AssetCommodityDTO], Error> {
         Just([]).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 }
