@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class WalletCell: UITableViewCell, ReusableCell {
     
@@ -13,6 +14,7 @@ final class WalletCell: UITableViewCell, ReusableCell {
     private let symbolLabel: UILabel = UILabel()
     private let balance: UILabel = UILabel()
     private let defaultWalletIcon: UIImageView = UIImageView(image: UIImage(systemName: "star.fill"))
+    private let iconView: UIImageView = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,6 +31,9 @@ final class WalletCell: UITableViewCell, ReusableCell {
         symbolLabel.text = viewModel.symbol
         balance.text = viewModel.balance
         defaultWalletIcon.isHidden = !viewModel.isDefault
+        
+        let placeholder: UIImage? = UIImage(systemName: "coloncurrencysign.circle")
+        iconView.kf.setImage(with: viewModel.iconLightUrl, placeholder: placeholder, options: [.processor(SVGProcessor())])
     }
 }
 
@@ -49,26 +54,36 @@ private extension WalletCell {
         defaultWalletIcon.contentMode = .scaleAspectFit
         defaultWalletIcon.tintColor = UIColor(named: "PrimaryColor")
         
+        iconView.clipsToBounds = true
+        iconView.contentMode = .scaleAspectFit
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentView.addSubview(iconView)
         contentView.addSubview(nameLabel)
         contentView.addSubview(symbolLabel)
         contentView.addSubview(balance)
         contentView.addSubview(defaultWalletIcon)
         
         NSLayoutConstraint.activate([
+            iconView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: UIConstants.Layout.margin),
+            iconView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UIConstants.Layout.margin),
+            iconView.widthAnchor.constraint(equalToConstant: UIConstants.Layout.Icon.width),
+            iconView.heightAnchor.constraint(equalTo: iconView.widthAnchor),
+            iconView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UIConstants.Layout.margin),
+            
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: UIConstants.Layout.margin),
-            nameLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: UIConstants.Layout.innerSpacing),
+            nameLabel.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: UIConstants.Layout.innerSpacing),
             
             symbolLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: UIConstants.Layout.innerSpacing),
-            symbolLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: UIConstants.Layout.innerSpacing),
-            symbolLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UIConstants.Layout.margin),
+            symbolLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             
             defaultWalletIcon.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: UIConstants.Layout.innerSpacing),
             defaultWalletIcon.widthAnchor.constraint(equalToConstant: UIConstants.Layout.Wallet.defaultWidth),
             defaultWalletIcon.heightAnchor.constraint(equalTo: defaultWalletIcon.widthAnchor),
             defaultWalletIcon.firstBaselineAnchor.constraint(equalTo: nameLabel.firstBaselineAnchor),
-            
+
             balance.firstBaselineAnchor.constraint(equalTo: nameLabel.firstBaselineAnchor),
-            balance.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -UIConstants.Layout.margin)
+            balance.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -UIConstants.Layout.margin)
         ])
     }
 }

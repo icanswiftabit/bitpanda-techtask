@@ -13,20 +13,23 @@ struct WalletViewModel: WalletViewModelProtocol, Equatable {
     let balance: String
     let deleted: Bool
     let isDefault: Bool
+    let iconLightUrl: URL?
     
-    init(wallet: WalletDTO) {
+    init(wallet: WalletDTO, iconLightUrl: URL?) {
         self.name = wallet.attributes.name
         self.symbol = wallet.attributes.cryptocoinSymbol
         self.balance = wallet.attributes.balance
         self.deleted = wallet.attributes.deleted
         self.isDefault = wallet.attributes.isDefault
+        self.iconLightUrl = iconLightUrl
     }
     
-    init(commodity: WalletCommodityDTO) {
+    init(commodity: WalletCommodityDTO, iconLightUrl: URL?) {
         self.name = commodity.attributes.name
         self.symbol = commodity.attributes.cryptocoinSymbol
         self.balance = commodity.attributes.balance
         self.deleted = commodity.attributes.deleted
         self.isDefault = commodity.attributes.isDefault
+        self.iconLightUrl = iconLightUrl
     }
 }

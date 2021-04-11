@@ -81,6 +81,7 @@ private extension WalletsViewController {
         
         walletsModel.$currentTitle.sink { [weak self] title in
             self?.title = title
+            self?.tabBarItem = UITabBarItem(title: "Wallets", image: UIImage(systemName: "creditcard.circle"), selectedImage: UIImage(systemName: "creditcard.circle.fill"))
         }
         .store(in: &bag)
     }
@@ -88,23 +89,48 @@ private extension WalletsViewController {
     func initialFetch() {
         repository.getWallets()
             .receive(on: scheduler)
-            .catch { _ -> Empty<[WalletDTO], Never> in Empty<[WalletDTO], Never>(completeImmediately: true) }
-            .map { dtos -> [WalletViewModel] in dtos.map { WalletViewModel(wallet: $0)} }
+            .catch { _ -> Empty<([WalletDTO], [AssetCryptoDTO]), Never> in Empty<([WalletDTO], [AssetCryptoDTO]), Never>(completeImmediately: true) }
+            .map { dtos -> [WalletViewModel] in
+                dtos.0.map { walletDto in
+                    let urlString = dtos.1.first { cryptoDto in cryptoDto.attributes.symbol == walletDto.attributes.cryptocoinSymbol }?.attributes.logo
+                    let iconLightUrl = URL(string: urlString)
+                    return WalletViewModel(wallet: walletDto, iconLightUrl: iconLightUrl)
+                }
+            }
             .sink { [weak self] wallets in self?.walletsModel.wallets.send(wallets) }
             .store(in: &bag)
         
         repository.getCommodityWallets()
             .receive(on: scheduler)
-            .catch { _ -> Empty<[WalletCommodityDTO], Never> in Empty<[WalletCommodityDTO], Never>(completeImmediately: true) }
-            .map { dtos -> [WalletViewModel] in dtos.map { WalletViewModel(commodity: $0)} }
+            .catch { _ -> Empty<([WalletCommodityDTO], [AssetCommodityDTO]), Never> in Empty<([WalletCommodityDTO], [AssetCommodityDTO]), Never>(completeImmediately: true) }
+            .map { dtos -> [WalletViewModel] in
+                dtos.0.map { commodityDto in
+                    let urlString = dtos.1.first { cryptoDto in cryptoDto.attributes.symbol == commodityDto.attributes.cryptocoinSymbol }?.attributes.logo
+                    let iconLightUrl = URL(string: urlString)
+                    return WalletViewModel(commodity: commodityDto, iconLightUrl: iconLightUrl)
+                }
+            }
             .sink { [weak self] commodities in self?.walletsModel.commodities.send(commodities) }
             .store(in: &bag)
 
         repository.getFiatWallets()
             .receive(on: scheduler)
-            .catch { _ -> Empty<[WalletFiatDTO], Never> in Empty<[WalletFiatDTO], Never>(completeImmediately: true) }
-            .map { dtos -> [WalletFiatViewModel] in dtos.map { WalletFiatViewModel(fiat: $0)} }
+            .catch { _ -> Empty<([WalletFiatDTO], [AssetFiatDTO]), Never> in Empty<([WalletFiatDTO], [AssetFiatDTO]), Never>(completeImmediately: true) }
+            .map { dtos -> [WalletFiatViewModel] in
+                dtos.0.map { fiatDto in
+                    let urlString = dtos.1.first { assetDto in assetDto.attributes.symbol == fiatDto.attributes.fiatSymbol }?.attributes.logo
+                    let iconLightUrl = URL(string: urlString)
+                    return WalletFiatViewModel(fiat: fiatDto, iconLightUrl: iconLightUrl)
+                }
+            }
             .sink { [weak self] fiats in self?.walletsModel.fiats.send(fiats) }
             .store(in: &bag)
+    }
+}
+
+private extension URL {
+    init?(string: String?) {
+        guard let string = string else { return nil }
+        self.init(string: string)
     }
 }

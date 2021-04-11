@@ -16,15 +16,24 @@ final class WalletJsonRepository: WalletRepositoryProtocol {
         self.source = source
     }
     
-    func getWallets() -> AnyPublisher<[WalletDTO], Error> {
-        Just(source.wallets).setFailureType(to: Error.self).eraseToAnyPublisher()
+    func getWallets() -> AnyPublisher<([WalletDTO], [AssetCryptoDTO]), Error> {
+        let wallets = Just(source.wallets).setFailureType(to: Error.self)
+        let assets = Just(source.cryptoAssets).setFailureType(to: Error.self)
+            
+        return wallets.zip(assets).eraseToAnyPublisher()
     }
     
-    func getFiatWallets() -> AnyPublisher<[WalletFiatDTO], Error> {
-        Just(source.fiatWallets).setFailureType(to: Error.self).eraseToAnyPublisher()
+    func getFiatWallets() -> AnyPublisher<([WalletFiatDTO], [AssetFiatDTO]), Error> {
+        let fiats = Just(source.fiatWallets).setFailureType(to: Error.self)
+        let assets = Just(source.fiatAssets).setFailureType(to: Error.self)
+            
+        return fiats.zip(assets).eraseToAnyPublisher()
     }
     
-    func getCommodityWallets() -> AnyPublisher<[WalletCommodityDTO], Error> {
-        Just(source.commodityWallets).setFailureType(to: Error.self).eraseToAnyPublisher()
+    func getCommodityWallets() -> AnyPublisher<([WalletCommodityDTO], [AssetCommodityDTO]), Error> {
+        let commodities = Just(source.commodityWallets).setFailureType(to: Error.self)
+        let assets = Just(source.commodityAssets).setFailureType(to: Error.self)
+        
+        return commodities.zip(assets).eraseToAnyPublisher()
     }
 }

@@ -8,7 +8,7 @@
 import Combine
 
 protocol WalletRepositoryProtocol {
-    func getWallets() -> AnyPublisher<[WalletDTO], Error>
-    func getFiatWallets() -> AnyPublisher<[WalletFiatDTO], Error>
-    func getCommodityWallets() -> AnyPublisher<[WalletCommodityDTO], Error>
+    func getWallets() -> AnyPublisher<([WalletDTO], [AssetCryptoDTO]), Error>
+    func getFiatWallets() -> AnyPublisher<([WalletFiatDTO], [AssetFiatDTO]), Error>
+    func getCommodityWallets() -> AnyPublisher<([WalletCommodityDTO], [AssetCommodityDTO]), Error>
 }

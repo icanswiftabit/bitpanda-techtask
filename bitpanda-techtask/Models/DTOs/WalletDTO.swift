@@ -15,7 +15,6 @@ struct WalletDTO: Decodable {
         let deleted: Bool
         let isDefault: Bool
         
-        
         enum CodingKeys: String, CodingKey {
             case name, balance, deleted
             case cryptocoinSymbol = "cryptocoin_symbol"

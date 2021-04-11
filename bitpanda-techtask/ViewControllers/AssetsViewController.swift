@@ -74,6 +74,7 @@ private extension AssetsViewController {
         
         assetsModel.$currentTitle.sink { [weak self] title in
             self?.title = title
+            self?.tabBarItem = UITabBarItem(title: "Asset", image: UIImage(systemName: "bitcoinsign.circle"), selectedImage: UIImage(systemName: "bitcoinsign.circle.fill"))
         }
         .store(in: &bag)
     }
