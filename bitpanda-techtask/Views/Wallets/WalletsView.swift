@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 final class WalletsView: UIView {
-    @Published private(set) var selectedSegment: WalletsModel.SelectedWalletType = .all
+    @Published private(set) var selectedSegment: WalletsModel.WalletType = .all
     
     let reloadData: PassthroughSubject<Void, Never> = PassthroughSubject()
     let showSegmentControl: CurrentValueSubject<Bool, Never> = CurrentValueSubject(false)
@@ -83,8 +83,8 @@ private extension WalletsView {
     
     func removeSegmentControl() {
         selectedSegment = .all
-        topTableViewConstraintWithSegmentHidden?.isActive = true
         topTableViewConstraintWithSegmentShowed?.isActive = false
+        topTableViewConstraintWithSegmentHidden?.isActive = true
         
         UIView.animate(withDuration: UIConstants.Layout.animation, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction]) {
             self.layoutIfNeeded()
@@ -95,14 +95,14 @@ private extension WalletsView {
     }
     
     func updateSelectedSegment(with tab: Int) {
-        guard let selectedAssetType = WalletsModel.SelectedWalletType(rawValue: tab + 1) else { assert(false, "SelectedWalletType should be created") }
+        guard let selectedAssetType = WalletsModel.WalletType(rawValue: tab + 1) else { assert(false, "SelectedWalletType should be created") }
         selectedSegment = selectedAssetType
     }
     
     func setUpUI() {
         backgroundColor = .systemBackground
         segmentControl.selectedSegmentTintColor = UIColor(named: "PrimaryColor")
-        segmentControl.selectedSegmentIndex = WalletsModel.SelectedWalletType.all.rawValue
+        segmentControl.selectedSegmentIndex = WalletsModel.WalletType.all.rawValue
         segmentControl.translatesAutoresizingMaskIntoConstraints = false
         segmentControl.backgroundColor = .systemBackground
         
@@ -110,7 +110,7 @@ private extension WalletsView {
 
         tableView.allowsSelection = false
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = (UIConstants.Layout.margin * 2) + UIConstants.Layout.Icon.width
+        tableView.estimatedRowHeight = (UIConstants.Layout.margin * 2) 
         addSubview(tableView)
         
         let topTableViewConstraint = tableView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor)
@@ -126,6 +126,7 @@ private extension WalletsView {
     }
     
     func setUpCells() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "WalletCell")
+        tableView.register(WalletCell.self)
+        tableView.register(FiatWalletCell.self)
     }
 }

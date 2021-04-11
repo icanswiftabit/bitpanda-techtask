@@ -12,14 +12,14 @@ final class AssetsViewController<S>: UIViewController where S: Scheduler {
     private let assetsView: AssetsView = AssetsView()
     private let repository: AssetRepositoryProtocol
     private let assetsModel: AssetsModel = AssetsModel()
-    private let assetsTableDataSource: AssetTableDataSource
+    private let assetsTableDataSource: AssetsTableDataSource
     private let scheduler: S
     private var bag = Set<AnyCancellable>()
     
     init(repository: AssetRepositoryProtocol, on scheduler: S) {
         self.repository = repository
         self.scheduler = scheduler
-        self.assetsTableDataSource = AssetTableDataSource(assetsModel: self.assetsModel)
+        self.assetsTableDataSource = AssetsTableDataSource(assetsModel: self.assetsModel)
         super.init(nibName: nil, bundle: nil)
         
         setUpBindings()

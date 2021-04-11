@@ -10,6 +10,16 @@ import Foundation
 struct WalletCommodityDTO: Decodable {
     struct Attributes: Decodable {
         let name: String
+        let cryptocoinSymbol: String
+        let balance: String
+        let deleted: Bool
+        let isDefault: Bool
+        
+        enum CodingKeys: String, CodingKey {
+            case name, balance, deleted
+            case cryptocoinSymbol = "cryptocoin_symbol"
+            case isDefault = "is_default"
+        }
     }
     
     let id: String

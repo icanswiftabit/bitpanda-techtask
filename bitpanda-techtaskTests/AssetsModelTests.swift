@@ -1,5 +1,5 @@
 //
-//  AssetModelTests.swift
+//  AssetsModelTests.swift
 //  bitpanda-techtaskTests
 //
 //  Created by Blazej Wdowikowski on 09/04/2021.
@@ -9,7 +9,7 @@ import XCTest
 @testable import bitpanda_techtask
 import Combine
 
-final class AssetModelTests: XCTestCase {
+final class AssetsModelTests: XCTestCase {
     
     func test_hasCorrectValues() {
         
@@ -51,7 +51,7 @@ final class AssetModelTests: XCTestCase {
             .sink { sut.commodities.send($0) }
         
         // Act
-        _ = Just(AssetsModel.SelectedAssetType.fiats)
+        _ = Just(AssetsModel.AssetType.fiats)
             .assign(to: \.value, on: sut.selectedSegment)
             
         // Assert
@@ -59,7 +59,7 @@ final class AssetModelTests: XCTestCase {
         XCTAssert((sut.currentlySelectedAssets as! [AssetFiatViewModel]) == fiatsWithWallets)
         
         // Act
-        _ = Just(AssetsModel.SelectedAssetType.commodities)
+        _ = Just(AssetsModel.AssetType.commodities)
             .assign(to: \.value, on: sut.selectedSegment)
             
         // Assert

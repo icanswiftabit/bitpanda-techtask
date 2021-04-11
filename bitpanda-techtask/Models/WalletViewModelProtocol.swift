@@ -7,4 +7,6 @@
 
 import Foundation
 
-protocol WalletViewModelProtocol {}
+protocol WalletViewModelProtocol {
+    var balance: String { get }
+}

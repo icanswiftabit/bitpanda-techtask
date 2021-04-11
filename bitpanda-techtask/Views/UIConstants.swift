@@ -20,6 +20,15 @@ struct UIConstants {
         struct SegmentControl {
             static let height: CGFloat = 60.0
         }
+        
+        struct Wallet {
+            static let defaultWidth: CGFloat = 12.0
+            static let fiatWidth: CGFloat = 24.0
+            struct Background {
+                static let defaultAlpha: CGFloat = 1
+                static let nonDefaultAlpha: CGFloat = 0.75
+            }
+        }
     }
     
     struct Font {

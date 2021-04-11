@@ -35,12 +35,15 @@
 		BE42BCC52622227E00670FFD /* WalletsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42BCC42622227E00670FFD /* WalletsModel.swift */; };
 		BE42BCC9262224F300670FFD /* WalletsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42BCC8262224F300670FFD /* WalletsView.swift */; };
 		BE5F3D7126222AE000C82321 /* WalletsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F3D7026222AE000C82321 /* WalletsTableDataSource.swift */; };
+		BE5F3D7B2622559500C82321 /* WalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F3D7A2622559500C82321 /* WalletCell.swift */; };
+		BE5F3D832622582500C82321 /* FiatWalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F3D822622582500C82321 /* FiatWalletCell.swift */; };
+		BE5F3D892622F86900C82321 /* WalletsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F3D882622F86900C82321 /* WalletsModelTests.swift */; };
 		BE5F70372620DCBE0035E601 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BE5F70362620DCBE0035E601 /* README.md */; };
 		BE5F70422620E8AB0035E601 /* Masterdata.json in Resources */ = {isa = PBXBuildFile; fileRef = BE5F70412620E8AB0035E601 /* Masterdata.json */; };
 		BE5F70472620E8EE0035E601 /* AssetFiatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F70462620E8EE0035E601 /* AssetFiatViewModel.swift */; };
 		BE5F704C2620E9140035E601 /* AssetViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F704B2620E9140035E601 /* AssetViewModelProtocol.swift */; };
-		BE5F70512620E94E0035E601 /* AssetModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F70502620E94E0035E601 /* AssetModelTests.swift */; };
-		BEA100B9261E6A8A00D64439 /* AssetTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA100B8261E6A8A00D64439 /* AssetTableDataSource.swift */; };
+		BE5F70512620E94E0035E601 /* AssetsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F70502620E94E0035E601 /* AssetsModelTests.swift */; };
+		BEA100B9261E6A8A00D64439 /* AssetsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA100B8261E6A8A00D64439 /* AssetsTableDataSource.swift */; };
 		BEA100BF261E6B2200D64439 /* AssetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA100BE261E6B2200D64439 /* AssetsModel.swift */; };
 		BEA100CB261F7B6B00D64439 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BEA100CA261F7B6B00D64439 /* Kingfisher */; };
 		BEA100D0261F7BDA00D64439 /* AssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA100CF261F7BDA00D64439 /* AssetCell.swift */; };
@@ -94,12 +97,15 @@
 		BE42BCC42622227E00670FFD /* WalletsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsModel.swift; sourceTree = "<group>"; };
 		BE42BCC8262224F300670FFD /* WalletsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsView.swift; sourceTree = "<group>"; };
 		BE5F3D7026222AE000C82321 /* WalletsTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsTableDataSource.swift; sourceTree = "<group>"; };
+		BE5F3D7A2622559500C82321 /* WalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCell.swift; sourceTree = "<group>"; };
+		BE5F3D822622582500C82321 /* FiatWalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatWalletCell.swift; sourceTree = "<group>"; };
+		BE5F3D882622F86900C82321 /* WalletsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsModelTests.swift; sourceTree = "<group>"; };
 		BE5F70362620DCBE0035E601 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BE5F70412620E8AB0035E601 /* Masterdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Masterdata.json; sourceTree = "<group>"; };
 		BE5F70462620E8EE0035E601 /* AssetFiatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetFiatViewModel.swift; sourceTree = "<group>"; };
 		BE5F704B2620E9140035E601 /* AssetViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewModelProtocol.swift; sourceTree = "<group>"; };
-		BE5F70502620E94E0035E601 /* AssetModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetModelTests.swift; sourceTree = "<group>"; };
-		BEA100B8261E6A8A00D64439 /* AssetTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTableDataSource.swift; sourceTree = "<group>"; };
+		BE5F70502620E94E0035E601 /* AssetsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsModelTests.swift; sourceTree = "<group>"; };
+		BEA100B8261E6A8A00D64439 /* AssetsTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableDataSource.swift; sourceTree = "<group>"; };
 		BEA100BE261E6B2200D64439 /* AssetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsModel.swift; sourceTree = "<group>"; };
 		BEA100CF261F7BDA00D64439 /* AssetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCell.swift; sourceTree = "<group>"; };
 		BEA100DB261F7E8700D64439 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
@@ -170,7 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				BE2C5E5B261C9A440071592F /* Info.plist */,
-				BE5F70502620E94E0035E601 /* AssetModelTests.swift */,
+				BE5F70502620E94E0035E601 /* AssetsModelTests.swift */,
+				BE5F3D882622F86900C82321 /* WalletsModelTests.swift */,
 			);
 			path = "bitpanda-techtaskTests";
 			sourceTree = "<group>";
@@ -266,6 +273,8 @@
 				BE42BCB12622213700670FFD /* WalletViewModel.swift */,
 				BE42BCBE262221C100670FFD /* WalletFiatViewModel.swift */,
 				BE42BCC8262224F300670FFD /* WalletsView.swift */,
+				BE5F3D7A2622559500C82321 /* WalletCell.swift */,
+				BE5F3D822622582500C82321 /* FiatWalletCell.swift */,
 			);
 			path = Wallets;
 			sourceTree = "<group>";
@@ -273,7 +282,7 @@
 		BEA100B7261E6A7600D64439 /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
-				BEA100B8261E6A8A00D64439 /* AssetTableDataSource.swift */,
+				BEA100B8261E6A8A00D64439 /* AssetsTableDataSource.swift */,
 				BE5F3D7026222AE000C82321 /* WalletsTableDataSource.swift */,
 			);
 			path = DataSources;
@@ -407,11 +416,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5F3D7B2622559500C82321 /* WalletCell.swift in Sources */,
 				BE5F70472620E8EE0035E601 /* AssetFiatViewModel.swift in Sources */,
 				BE5F704C2620E9140035E601 /* AssetViewModelProtocol.swift in Sources */,
 				BE42BCAE26221F3E00670FFD /* WalletsViewController.swift in Sources */,
 				BEAFA2A0261FAF3500EBC0B5 /* ReusableCell.swift in Sources */,
-				BEA100B9261E6A8A00D64439 /* AssetTableDataSource.swift in Sources */,
+				BEA100B9261E6A8A00D64439 /* AssetsTableDataSource.swift in Sources */,
 				BE42BCBF262221C100670FFD /* WalletFiatViewModel.swift in Sources */,
 				BE42BC9C26221AA400670FFD /* WalletRepositoryProtocol.swift in Sources */,
 				BE5F3D7126222AE000C82321 /* WalletsTableDataSource.swift in Sources */,
@@ -441,6 +451,7 @@
 				BE42BCB22622213700670FFD /* WalletViewModel.swift in Sources */,
 				BE2C5ECA261CDECE0071592F /* AssetCommodityDTO.swift in Sources */,
 				BEAFA29B261F9F8800EBC0B5 /* AssetViewModel.swift in Sources */,
+				BE5F3D832622582500C82321 /* FiatWalletCell.swift in Sources */,
 				BE42BCBB262221B000670FFD /* WalletViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,7 +460,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE5F70512620E94E0035E601 /* AssetModelTests.swift in Sources */,
+				BE5F3D892622F86900C82321 /* WalletsModelTests.swift in Sources */,
+				BE5F70512620E94E0035E601 /* AssetsModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

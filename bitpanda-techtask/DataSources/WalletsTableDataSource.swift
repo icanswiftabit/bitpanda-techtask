@@ -15,23 +15,22 @@ final class WalletsTableDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        walletsModel.currentlySelectedAssets.count - 1
+        walletsModel.currentlySelectedWallets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-//        let cell = tableView.dequeue(AssetCell.self)
-//        cell.setUp(with: walletsModel.currentlySelectedAssets[indexPath.row])
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WalletCell")!
-        let model = walletsModel.currentlySelectedAssets[indexPath.row]
+        let model = walletsModel.currentlySelectedWallets[indexPath.row]
         if let model = model as? WalletViewModel {
-            cell.textLabel?.text = model.name
-            cell.detailTextLabel?.text = "WalletViewModel"
+            let cell = tableView.dequeue(WalletCell.self)
+            cell.configure(with: model)
+            return cell
         } else if let model = model as? WalletFiatViewModel {
-            cell.textLabel?.text = model.name
-            cell.detailTextLabel?.text = "WalletFiatViewModel"
+            let cell = tableView.dequeue(FiatWalletCell.self)
+            cell.configure(with: model)
+            return cell
         }
         
-        return cell
+        return UITableViewCell()
     }
 }

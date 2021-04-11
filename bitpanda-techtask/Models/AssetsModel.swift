@@ -8,7 +8,7 @@
 import Combine
 
 final class AssetsModel {
-    enum SelectedAssetType: Int, CaseIterable, CustomStringConvertible {
+    enum AssetType: Int, CaseIterable, CustomStringConvertible {
         case cryptos, commodities, fiats
         
         var description: String {
@@ -20,11 +20,11 @@ final class AssetsModel {
         }
     }
     
-    @Published private(set) var currentTitle = SelectedAssetType.cryptos.description
+    @Published private(set) var currentTitle = AssetType.cryptos.description
     var fiats: CurrentValueSubject<[AssetFiatViewModel], Never> = CurrentValueSubject([AssetFiatViewModel]())
     var cryptos: CurrentValueSubject<[AssetViewModel], Never> = CurrentValueSubject([AssetViewModel]())
     var commodities: CurrentValueSubject<[AssetViewModel], Never> = CurrentValueSubject([AssetViewModel]())
-    var selectedSegment: CurrentValueSubject<SelectedAssetType, Never> = CurrentValueSubject(.cryptos)
+    var selectedSegment: CurrentValueSubject<AssetType, Never> = CurrentValueSubject(.cryptos)
     
     private var bag: Set<AnyCancellable> = Set<AnyCancellable>()
     
