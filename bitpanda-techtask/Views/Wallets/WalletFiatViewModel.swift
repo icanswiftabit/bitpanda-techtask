@@ -11,12 +11,12 @@ struct WalletFiatViewModel: WalletViewModelProtocol, Equatable {
     let name: String
     let fiatSymbol: String
     let balance: String
-    let iconLightUrl: URL?
+    let logoAsset: ImageAssetResource
     
-    init(fiat: WalletFiatDTO, iconLightUrl: URL?) {
+    init(fiat: WalletFiatDTO, logoAsset: ImageAssetResource) {
         self.name = fiat.attributes.name
         self.balance = fiat.attributes.balance
         self.fiatSymbol = fiat.attributes.fiatSymbol
-        self.iconLightUrl = iconLightUrl
+        self.logoAsset = logoAsset
     }
 }

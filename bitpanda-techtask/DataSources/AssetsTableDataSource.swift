@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class AssetsTableDataSource: NSObject, UITableViewDataSource {
-    private let assetsModel: AssetsModel
+final class AssetsTableDataSource<S>: NSObject, UITableViewDataSource where S: DispatchQueue {
+    private let assetsModel: AssetsModel<S>
     
-    init(assetsModel: AssetsModel) {
+    init(assetsModel: AssetsModel<S>) {
         self.assetsModel = assetsModel
     }
     

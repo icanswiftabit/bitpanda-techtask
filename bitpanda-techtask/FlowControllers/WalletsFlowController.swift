@@ -22,7 +22,7 @@ final class WalletsFlowController: FlowController {
     }
     
     func configureRootViewController() -> UINavigationController {
-        let navigationController = UINavigationController(rootViewController: WalletsViewController(repository: walletRepository, on: DispatchQueue.main))
+        let navigationController = UINavigationController(rootViewController: WalletsViewController(repository: walletRepository))
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.tintColor = UIColor(named: "PrimaryColor")
         return navigationController

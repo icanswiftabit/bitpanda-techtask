@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Combine
 
-final class WalletsTableDataSource: NSObject, UITableViewDataSource {
-    private let walletsModel: WalletsModel
+final class WalletsTableDataSource<S>: NSObject, UITableViewDataSource where S: Scheduler {
+    private let walletsModel: WalletsModel<S>
     
-    init(walletsModel: WalletsModel) {
+    init(walletsModel: WalletsModel<S>) {
         self.walletsModel = walletsModel
     }
     

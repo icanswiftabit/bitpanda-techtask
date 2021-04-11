@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Kingfisher
+import Combine
 
 final class WalletCell: UITableViewCell, ReusableCell {
     
@@ -15,6 +15,8 @@ final class WalletCell: UITableViewCell, ReusableCell {
     private let balance: UILabel = UILabel()
     private let defaultWalletIcon: UIImageView = UIImageView(image: UIImage(systemName: "star.fill"))
     private let iconView: UIImageView = UIImageView()
+    private let svgLoader = SVGLoader()
+    private var bag = Set<AnyCancellable>()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -32,8 +34,13 @@ final class WalletCell: UITableViewCell, ReusableCell {
         balance.text = viewModel.balance
         defaultWalletIcon.isHidden = !viewModel.isDefault
         
-        let placeholder: UIImage? = UIImage(systemName: "coloncurrencysign.circle")
-        iconView.kf.setImage(with: viewModel.iconLightUrl, placeholder: placeholder, options: [.processor(SVGProcessor())])
+        let placeholder: UIImage = UIImage(systemName: "coloncurrencysign.circle") ?? UIImage()
+        svgLoader.publisher(for: viewModel.logoAsset, failsafeImage: placeholder)
+            .catch { error -> Empty<UIImage, Never> in Empty<UIImage, Never>(completeImmediately: true) }
+            .sink { [weak self] image in
+                self?.iconView.image = image
+            }
+            .store(in: &bag)
     }
 }
 

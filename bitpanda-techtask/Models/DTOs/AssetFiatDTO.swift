@@ -11,11 +11,13 @@ struct AssetFiatDTO: Decodable {
     struct Attributes: Decodable {
         let name: String
         let logo: String
+        let logoDark: String
         let symbol: String
         let hasWallets: Bool
         
         enum CodingKeys: String, CodingKey {
             case name, logo, symbol
+            case logoDark = "logo_dark"
             case hasWallets = "has_wallets"
         }
         

@@ -6,13 +6,15 @@
 //
 
 import UIKit
-import Kingfisher
+import Combine
 
 final class AssetCell: UITableViewCell, ReusableCell {
     private let iconView: UIImageView = UIImageView()
     private let nameLabel: UILabel = UILabel()
     private let symbolLabel: UILabel = UILabel()
     private let avgPriceLabel: UILabel = UILabel()
+    private let svgLoader = SVGLoader()
+    private var bag = Set<AnyCancellable>()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -74,8 +76,14 @@ private extension AssetCell {
     }
     
     func setUp(with viewModel: AssetViewModel) {
-        let placeholder: UIImage? = UIImage(systemName: "coloncurrencysign.circle")
-        iconView.kf.setImage(with: viewModel.iconLightUrl, placeholder: placeholder, options: [.processor(SVGProcessor())])
+        let placeholder: UIImage = UIImage(systemName: "coloncurrencysign.circle") ?? UIImage()
+        
+        svgLoader.publisher(for: viewModel.logoAsset, failsafeImage: placeholder)
+            .catch { error -> Empty<UIImage, Never> in Empty<UIImage, Never>(completeImmediately: true) }
+            .sink { [weak self] image in
+                self?.iconView.image = image
+            }
+            .store(in: &bag)
         nameLabel.text = viewModel.name
         symbolLabel.text = "(\(viewModel.symbol))"
 
@@ -83,8 +91,13 @@ private extension AssetCell {
     }
     
     func setUp(with viewModel: AssetFiatViewModel) {
-        let placeholder: UIImage? = UIImage(systemName: "coloncurrencysign.circle")
-        iconView.kf.setImage(with: viewModel.iconLightUrl, placeholder: placeholder, options: [.processor(SVGProcessor())])
+        let placeholder: UIImage = UIImage(systemName: "dolarsign.circle") ?? UIImage()
+        svgLoader.publisher(for: viewModel.logoAsset, failsafeImage: placeholder)
+            .catch { error -> Empty<UIImage, Never> in Empty<UIImage, Never>(completeImmediately: true) }
+            .sink { [weak self] image in
+                self?.iconView.image = image
+            }
+            .store(in: &bag)
         nameLabel.text = viewModel.name
         symbolLabel.text = "(\(viewModel.symbol))"
         avgPriceLabel.text = nil

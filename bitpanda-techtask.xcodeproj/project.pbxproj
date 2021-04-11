@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE24758E262391B4000447D3 /* ImageAssetResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24758D262391B4000447D3 /* ImageAssetResource.swift */; };
+		BE24759226239745000447D3 /* SVGLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24759126239745000447D3 /* SVGLoader.swift */; };
+		BE24759F2623A06B000447D3 /* AssetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24759E2623A06B000447D3 /* AssetType.swift */; };
+		BE2475A32623A077000447D3 /* WalletType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2475A22623A077000447D3 /* WalletType.swift */; };
 		BE2C5E43261C9A440071592F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E42261C9A440071592F /* AppDelegate.swift */; };
 		BE2C5E45261C9A440071592F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2C5E44261C9A440071592F /* SceneDelegate.swift */; };
 		BE2C5E4C261C9A440071592F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE2C5E4B261C9A440071592F /* Assets.xcassets */; };
@@ -45,11 +49,9 @@
 		BE5F70512620E94E0035E601 /* AssetsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F70502620E94E0035E601 /* AssetsModelTests.swift */; };
 		BEA100B9261E6A8A00D64439 /* AssetsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA100B8261E6A8A00D64439 /* AssetsTableDataSource.swift */; };
 		BEA100BF261E6B2200D64439 /* AssetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA100BE261E6B2200D64439 /* AssetsModel.swift */; };
-		BEA100CB261F7B6B00D64439 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BEA100CA261F7B6B00D64439 /* Kingfisher */; };
 		BEA100D0261F7BDA00D64439 /* AssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA100CF261F7BDA00D64439 /* AssetCell.swift */; };
 		BEA100DC261F7E8700D64439 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA100DB261F7E8700D64439 /* UIConstants.swift */; };
 		BEA100FD261F924F00D64439 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BEA100FC261F924F00D64439 /* SVGKitSwift */; };
-		BEA10102261F92A800D64439 /* SVGProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA10101261F92A800D64439 /* SVGProcessor.swift */; };
 		BEAFA29B261F9F8800EBC0B5 /* AssetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFA29A261F9F8800EBC0B5 /* AssetViewModel.swift */; };
 		BEAFA2A0261FAF3500EBC0B5 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFA29F261FAF3500EBC0B5 /* ReusableCell.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE24758D262391B4000447D3 /* ImageAssetResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssetResource.swift; sourceTree = "<group>"; };
+		BE24759126239745000447D3 /* SVGLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGLoader.swift; sourceTree = "<group>"; };
+		BE24759E2623A06B000447D3 /* AssetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetType.swift; sourceTree = "<group>"; };
+		BE2475A22623A077000447D3 /* WalletType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletType.swift; sourceTree = "<group>"; };
 		BE2C5E3F261C9A440071592F /* bitpanda-techtask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bitpanda-techtask.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2C5E42261C9A440071592F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE2C5E44261C9A440071592F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,7 +115,6 @@
 		BEA100BE261E6B2200D64439 /* AssetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsModel.swift; sourceTree = "<group>"; };
 		BEA100CF261F7BDA00D64439 /* AssetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCell.swift; sourceTree = "<group>"; };
 		BEA100DB261F7E8700D64439 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
-		BEA10101261F92A800D64439 /* SVGProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGProcessor.swift; sourceTree = "<group>"; };
 		BEAFA29A261F9F8800EBC0B5 /* AssetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewModel.swift; sourceTree = "<group>"; };
 		BEAFA29F261FAF3500EBC0B5 /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,7 +125,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEA100FD261F924F00D64439 /* SVGKitSwift in Frameworks */,
-				BEA100CB261F7B6B00D64439 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +245,8 @@
 				BEA100BE261E6B2200D64439 /* AssetsModel.swift */,
 				BE42BCBA262221B000670FFD /* WalletViewModelProtocol.swift */,
 				BE42BCC42622227E00670FFD /* WalletsModel.swift */,
+				BE24759E2623A06B000447D3 /* AssetType.swift */,
+				BE2475A22623A077000447D3 /* WalletType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,7 +308,8 @@
 		BEA10109261F92DD00D64439 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				BEA10101261F92A800D64439 /* SVGProcessor.swift */,
+				BE24759126239745000447D3 /* SVGLoader.swift */,
+				BE24758D262391B4000447D3 /* ImageAssetResource.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -324,7 +331,6 @@
 			);
 			name = "bitpanda-techtask";
 			packageProductDependencies = (
-				BEA100CA261F7B6B00D64439 /* Kingfisher */,
 				BEA100FC261F924F00D64439 /* SVGKitSwift */,
 			);
 			productName = "bitpanda-techtask";
@@ -377,7 +383,6 @@
 			);
 			mainGroup = BE2C5E36261C9A440071592F;
 			packageReferences = (
-				BEA100C9261F7B6B00D64439 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				BEA100FB261F924F00D64439 /* XCRemoteSwiftPackageReference "SVGKit" */,
 			);
 			productRefGroup = BE2C5E40261C9A440071592F /* Products */;
@@ -439,19 +444,22 @@
 				BE42BC8E262219D200670FFD /* WalletDTO.swift in Sources */,
 				BE2C5EA4261C9FFA0071592F /* AssetsViewController.swift in Sources */,
 				BEA100DC261F7E8700D64439 /* UIConstants.swift in Sources */,
-				BEA10102261F92A800D64439 /* SVGProcessor.swift in Sources */,
 				BE2C5E95261C9EA20071592F /* AssetsView.swift in Sources */,
 				BE2C5EC0261CDDC20071592F /* AssetFiatDTO.swift in Sources */,
 				BE2C5ED0261CDF1B0071592F /* JsonMasterdata.swift in Sources */,
+				BE24759F2623A06B000447D3 /* AssetType.swift in Sources */,
 				BE2C5EC5261CDE670071592F /* AssetCryptoDTO.swift in Sources */,
 				BE2C5EBA261CDD6E0071592F /* AssetRepositoryProtocol.swift in Sources */,
 				BE2C5EAC261CA0430071592F /* AssetsFlowController.swift in Sources */,
+				BE24758E262391B4000447D3 /* ImageAssetResource.swift in Sources */,
 				BE42BCC52622227E00670FFD /* WalletsModel.swift in Sources */,
 				BEA100BF261E6B2200D64439 /* AssetsModel.swift in Sources */,
+				BE24759226239745000447D3 /* SVGLoader.swift in Sources */,
 				BE42BCB22622213700670FFD /* WalletViewModel.swift in Sources */,
 				BE2C5ECA261CDECE0071592F /* AssetCommodityDTO.swift in Sources */,
 				BEAFA29B261F9F8800EBC0B5 /* AssetViewModel.swift in Sources */,
 				BE5F3D832622582500C82321 /* FiatWalletCell.swift in Sources */,
+				BE2475A32623A077000447D3 /* WalletType.swift in Sources */,
 				BE42BCBB262221B000670FFD /* WalletViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -714,14 +722,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BEA100C9261F7B6B00D64439 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = exactVersion;
-				version = 6.2.1;
-			};
-		};
 		BEA100FB261F924F00D64439 /* XCRemoteSwiftPackageReference "SVGKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/icanswiftabit/SVGKit";
@@ -733,11 +733,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BEA100CA261F7B6B00D64439 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BEA100C9261F7B6B00D64439 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
 		BEA100FC261F924F00D64439 /* SVGKitSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BEA100FB261F924F00D64439 /* XCRemoteSwiftPackageReference "SVGKit" */;

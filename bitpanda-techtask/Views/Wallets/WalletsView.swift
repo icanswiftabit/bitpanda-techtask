@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 final class WalletsView: UIView {
-    @Published private(set) var selectedSegment: WalletsModel.WalletType = .all
+    @Published private(set) var selectedSegment: WalletType = .all
     
     let reloadData: PassthroughSubject<Void, Never> = PassthroughSubject()
     let showSegmentControl: CurrentValueSubject<Bool, Never> = CurrentValueSubject(false)
@@ -95,14 +95,14 @@ private extension WalletsView {
     }
     
     func updateSelectedSegment(with tab: Int) {
-        guard let selectedAssetType = WalletsModel.WalletType(rawValue: tab + 1) else { assert(false, "SelectedWalletType should be created") }
+        guard let selectedAssetType = WalletType(rawValue: tab + 1) else { assert(false, "SelectedWalletType should be created") }
         selectedSegment = selectedAssetType
     }
     
     func setUpUI() {
         backgroundColor = .systemBackground
         segmentControl.selectedSegmentTintColor = UIColor(named: "PrimaryColor")
-        segmentControl.selectedSegmentIndex = WalletsModel.WalletType.all.rawValue
+        segmentControl.selectedSegmentIndex = WalletType.all.rawValue
         segmentControl.translatesAutoresizingMaskIntoConstraints = false
         segmentControl.backgroundColor = .systemBackground
         

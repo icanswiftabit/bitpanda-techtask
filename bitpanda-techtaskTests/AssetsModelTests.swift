@@ -9,12 +9,26 @@ import XCTest
 @testable import bitpanda_techtask
 import Combine
 
+
+
 final class AssetsModelTests: XCTestCase {
+    
+    struct AssetRepositoryMock: AssetRepositoryProtocol{
+        func getFiatAssets() -> AnyPublisher<[AssetFiatDTO], Error> {
+            Empty<[AssetFiatDTO], Error>(completeImmediately: true).eraseToAnyPublisher()
+        }
+        func getCryptoAssets() -> AnyPublisher<[AssetCryptoDTO], Error> {
+            Empty<[AssetCryptoDTO], Error>(completeImmediately: true).eraseToAnyPublisher()
+        }
+        func getCommodityAssets() -> AnyPublisher<[AssetCommodityDTO], Error> {
+            Empty<[AssetCommodityDTO], Error>(completeImmediately: true).eraseToAnyPublisher()
+        }
+    }
     
     func test_hasCorrectValues() {
         
         // Arrange
-        let sut = AssetsModel()
+        let sut = AssetsModel(repository: AssetRepositoryMock(), on: ImmediateScheduler.shared)
         let fiats = (0...10).map { AssetFiatViewModel.sample(id: "\($0)", hasWallets: $0 % 2 == 0) }
         let cryptos = (0...9).map { AssetViewModel.sample(id: "\($0)") }
         let commodities = (0...8).map { AssetViewModel.sample(id: "\($0)") }
@@ -37,7 +51,7 @@ final class AssetsModelTests: XCTestCase {
     
     func test_hasCorrectValues_forSelectedSegment() {
         // Arrange
-        let sut = AssetsModel()
+        let sut = AssetsModel(repository: AssetRepositoryMock(), on: ImmediateScheduler.shared)
         let fiats = (0...10).map { AssetFiatViewModel.sample(id: "\($0)", hasWallets: $0 % 2 == 0) }
         let fiatsWithWallets = fiats.filter { $0.hasWallets }
         let cryptos = (0...9).map { AssetViewModel.sample(id: "\($0)") }
@@ -51,7 +65,7 @@ final class AssetsModelTests: XCTestCase {
             .sink { sut.commodities.send($0) }
         
         // Act
-        _ = Just(AssetsModel.AssetType.fiats)
+        _ = Just(AssetType.fiats)
             .assign(to: \.value, on: sut.selectedSegment)
             
         // Assert
@@ -59,7 +73,7 @@ final class AssetsModelTests: XCTestCase {
         XCTAssert((sut.currentlySelectedAssets as! [AssetFiatViewModel]) == fiatsWithWallets)
         
         // Act
-        _ = Just(AssetsModel.AssetType.commodities)
+        _ = Just(AssetType.commodities)
             .assign(to: \.value, on: sut.selectedSegment)
             
         // Assert
@@ -76,6 +90,7 @@ private extension AssetFiatViewModel {
                 attributes: AssetFiatDTO.Attributes(
                     name: "\(id).name",
                     logo: "\(id).logo",
+                    logoDark: "\(id).logoDark",
                     symbol: "\(id).symbol",
                     hasWallets: hasWallets
                 )
@@ -92,6 +107,7 @@ private extension AssetViewModel {
                 attributes: AssetCryptoDTO.Attributes(
                     name: "\(id).name",
                     logo: "\(id).logo",
+                    logoDark: "\(id).logoDark",
                     symbol: "\(id).symbol",
                     avgPrice: "\(id).\(id)",
                     precisionForFiatPrice: 2

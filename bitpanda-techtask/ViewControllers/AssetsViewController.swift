@@ -8,17 +8,14 @@
 import UIKit
 import Combine
 
-final class AssetsViewController<S>: UIViewController where S: Scheduler {
+final class AssetsViewController: UIViewController {
     private let assetsView: AssetsView = AssetsView()
-    private let repository: AssetRepositoryProtocol
-    private let assetsModel: AssetsModel = AssetsModel()
-    private let assetsTableDataSource: AssetsTableDataSource
-    private let scheduler: S
+    private let assetsModel: AssetsModel<DispatchQueue>
+    private let assetsTableDataSource: AssetsTableDataSource<DispatchQueue>
     private var bag = Set<AnyCancellable>()
     
-    init(repository: AssetRepositoryProtocol, on scheduler: S) {
-        self.repository = repository
-        self.scheduler = scheduler
+    init(repository: AssetRepositoryProtocol) {
+        self.assetsModel = AssetsModel(repository: repository, on: DispatchQueue.main)
         self.assetsTableDataSource = AssetsTableDataSource(assetsModel: self.assetsModel)
         super.init(nibName: nil, bundle: nil)
         
@@ -80,25 +77,6 @@ private extension AssetsViewController {
     }
     
     func initialFetch() {
-        repository.getFiatAssets()
-            .receive(on: scheduler)
-            .catch { _ -> Empty<[AssetFiatDTO], Never> in Empty<[AssetFiatDTO], Never>(completeImmediately: true) }
-            .map { dtos -> [AssetFiatViewModel] in dtos.map { AssetFiatViewModel(fiat: $0)} }
-            .sink { [weak self] fiats in self?.assetsModel.fiats.send(fiats) }
-            .store(in: &bag)
-        
-        repository.getCryptoAssets()
-            .receive(on: scheduler)
-            .catch { _ -> Empty<[AssetCryptoDTO], Never> in Empty<[AssetCryptoDTO], Never>(completeImmediately: true) }
-            .map { dtos -> [AssetViewModel] in dtos.map { AssetViewModel(crypto: $0)} }
-            .sink { [weak self] cryptos in self?.assetsModel.cryptos.send(cryptos) }
-            .store(in: &bag)
-        
-        repository.getCommodityAssets()
-            .receive(on: scheduler)
-            .catch { _ -> Empty<[AssetCommodityDTO], Never> in Empty<[AssetCommodityDTO], Never>(completeImmediately: true) }
-            .map { dtos -> [AssetViewModel] in dtos.map { AssetViewModel(commodity: $0)} }
-            .sink { [weak self] commodities in self?.assetsModel.commodities.send(commodities) }
-            .store(in: &bag)
+        assetsModel.initialFetch()
     }
 }

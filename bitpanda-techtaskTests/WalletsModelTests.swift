@@ -10,9 +10,26 @@ import XCTest
 import Combine
 
 final class WalletsModelTests: XCTestCase {
+    
+    struct WalletRepositoryMock: WalletRepositoryProtocol {
+        func getWallets() -> AnyPublisher<([WalletDTO], [AssetCryptoDTO]), Error> {
+            Empty<([WalletDTO], [AssetCryptoDTO]), Error>(completeImmediately: true).eraseToAnyPublisher()
+        }
+        
+        func getFiatWallets() -> AnyPublisher<([WalletFiatDTO], [AssetFiatDTO]), Error> {
+            Empty<([WalletFiatDTO], [AssetFiatDTO]), Error>(completeImmediately: true).eraseToAnyPublisher()
+        }
+        
+        func getCommodityWallets() -> AnyPublisher<([WalletCommodityDTO], [AssetCommodityDTO]), Error> {
+            Empty<([WalletCommodityDTO], [AssetCommodityDTO]), Error>(completeImmediately: true).eraseToAnyPublisher()
+        }
+        
+        
+    }
+    
     func test_hasCorrectValues() {
         // Arrange
-        let sut = WalletsModel()
+        let sut = WalletsModel(repository: WalletRepositoryMock(), on: ImmediateScheduler.shared)
         let wallets = (0...10).map { WalletViewModel.sample(id: "\($0)", deleted: $0 % 2 == 0, isDefault: $0 % 3 == 0) }
         let commodities = (0...9).map { WalletViewModel.sample(id: "\($0)", deleted: $0 % 2 == 0, isDefault: $0 % 3 == 0) }
         let fiats = (0...8).map { WalletFiatViewModel.sample(id: "\($0)") }
@@ -43,7 +60,7 @@ final class WalletsModelTests: XCTestCase {
     
     func test_currentlySelectedWallets_forSelectedSegment() {
         // Arrange
-        let sut = WalletsModel()
+        let sut = WalletsModel(repository: WalletRepositoryMock(), on: ImmediateScheduler.shared)
         let wallets = (0...10).map { WalletViewModel.sample(id: "\($0)", deleted: $0 % 2 == 0, isDefault: $0 % 3 == 0) }
         let commodities = (0...9).map { WalletViewModel.sample(id: "\($0)", deleted: $0 % 2 == 0, isDefault: $0 % 3 == 0) }
         let fiats = (0...8).map { WalletFiatViewModel.sample(id: "\($0)") }
@@ -89,7 +106,7 @@ final class WalletsModelTests: XCTestCase {
     
     func test_currentlySelectedWallets_forNotDeletedWallets() {
         // Arrange
-        let sut = WalletsModel()
+        let sut = WalletsModel(repository: WalletRepositoryMock(), on: ImmediateScheduler.shared)
         let wallets = (0...10).map { WalletViewModel.sample(id: "\($0)", deleted: $0 % 2 == 0, isDefault: $0 % 3 == 0) }
         let commodities = (0...9).map { WalletViewModel.sample(id: "\($0)", deleted: $0 % 2 == 0, isDefault: $0 % 3 == 0) }
         let fiats = (0...8).map { WalletFiatViewModel.sample(id: "\($0)") }
@@ -155,6 +172,9 @@ extension WalletFiatViewModel {
                     fiatSymbol: "\(id).fiatSymbol",
                     balance: "\(id).\(id)"
                 )
+            ),
+            logoAsset: ImageAssetResource(
+                lightUrl: URL(string: "https://\(id).light"), darkUrl: URL(string: "https://\(id).dark")
             )
         )
     }
@@ -172,6 +192,9 @@ private extension WalletViewModel {
                     deleted: deleted,
                     isDefault: isDefault
                 )
+            ),
+            logoAsset: ImageAssetResource(
+                lightUrl: URL(string: "https://\(id).light"), darkUrl: URL(string: "https://\(id).dark")
             )
         )
     }

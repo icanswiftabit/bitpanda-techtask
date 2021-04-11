@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class FiatWalletCell: UITableViewCell, ReusableCell {
     
@@ -14,6 +15,8 @@ final class FiatWalletCell: UITableViewCell, ReusableCell {
     private let balance: UILabel = UILabel()
     private let fiatIcon: UIImageView = UIImageView(image: UIImage(systemName: "banknote"))
     private let iconView: UIImageView = UIImageView()
+    private let svgLoader = SVGLoader()
+    private var bag = Set<AnyCancellable>()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,8 +33,13 @@ final class FiatWalletCell: UITableViewCell, ReusableCell {
         symbolLabel.text = viewModel.fiatSymbol
         balance.text = viewModel.balance
         
-        let placeholder: UIImage? = UIImage(systemName: "coloncurrencysign.circle")
-        iconView.kf.setImage(with: viewModel.iconLightUrl, placeholder: placeholder, options: [.processor(SVGProcessor())])
+        let placeholder: UIImage = UIImage(systemName: "coloncurrencysign.circle") ?? UIImage()
+        svgLoader.publisher(for: viewModel.logoAsset, failsafeImage: placeholder)
+            .catch { error -> Empty<UIImage, Never> in Empty<UIImage, Never>(completeImmediately: true) }
+            .sink { [weak self] image in
+                self?.iconView.image = image
+            }
+            .store(in: &bag)
     }
 }
 

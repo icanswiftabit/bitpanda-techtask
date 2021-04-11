@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 final class AssetsView: UIView {    
-    @Published private(set) var selectedSegment: AssetsModel.AssetType = .cryptos
+    @Published private(set) var selectedSegment: AssetType = .cryptos
     
     let reloadData: PassthroughSubject<Void, Never> = PassthroughSubject()
     let showSegmentControl: CurrentValueSubject<Bool, Never> = CurrentValueSubject(false)
@@ -46,7 +46,7 @@ final class AssetsView: UIView {
 private extension AssetsView {
     func setUpBindings() {
         segmentControl.publisher(for: \.selectedSegmentIndex).sink { [weak self] tab in
-            guard let selectedAssetType = AssetsModel.AssetType(rawValue: tab) else { assert(false, "SelectedAssetType should be created") }
+            guard let selectedAssetType = AssetType(rawValue: tab) else { assert(false, "SelectedAssetType should be created") }
             self?.selectedSegment = selectedAssetType
         }
         .store(in: &bag)

@@ -22,7 +22,7 @@ final class AssetsFlowController: FlowController {
     }
     
     func configureRootViewController() -> UINavigationController {
-        let navigationController = UINavigationController(rootViewController: AssetsViewController(repository: assetRepository, on: DispatchQueue.main))
+        let navigationController = UINavigationController(rootViewController: AssetsViewController(repository: assetRepository))
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.tintColor = UIColor(named: "PrimaryColor")
         return navigationController
